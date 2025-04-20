@@ -5,6 +5,9 @@ const express = require("express");
 const cors = require("cors");
 const debug = require("debug")("server:app.js");
 
+// Import routes
+const userRoutes = require("./routes/user.route.js"); // Import user routes
+
 // Import database connection configuration
 const connectDB = require("./config/db.config.js");
 
@@ -21,10 +24,8 @@ const PORT = process.env.PORT || 3000;
 // Connect to the database
 connectDB();
 
-// Define route for root URL
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
+// API Routes
+app.use("/api/users", userRoutes); // Mount user routes
 
 // Start the server
 app.listen(PORT, () => {
