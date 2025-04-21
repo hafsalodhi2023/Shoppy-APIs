@@ -1,4 +1,6 @@
-const debug = require("debug")("server:controllers:user.controller.js");
+const debug = require("debug")(
+  "server:controllers:users:register.user.controller.js"
+);
 
 const User = require("../../models/user.model.js"); // Import User model
 

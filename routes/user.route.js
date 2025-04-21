@@ -1,6 +1,6 @@
 const express = require("express");
 
-const register = require("../controllers/users/user.controller.js");
+const register = require("../controllers/users/register.user.controller");
 
 const router = express.Router();
 
