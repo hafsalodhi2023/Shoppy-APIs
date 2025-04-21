@@ -4,7 +4,7 @@ const debug = require("debug")(
 
 const User = require("../../models/user.model.js"); // Import User model
 
-const jwt = require("jsonwebtoken"); // Import JWT library
+const createJWT = require("../../utils/createJWT.util");
 
 const register = async (req, res) => {
   const { name, email, password } = req.body;
@@ -33,31 +33,23 @@ const register = async (req, res) => {
       },
     };
 
-    // Sign and return the token along with the user data
+    const [err, token] = await createJWT(payload, 30 * 24 * 60 * 60);
+    if (err) throw err;
 
-    jwt.sign(
-      payload,
-      process.env.JWT_SECRET,
-      { expiresIn: 30 * 24 * 60 * 60 },
-      (err, token) => {
-        if (err) throw err;
-        // send the user token in the response
-        return res.status(201).json({
-          success: true,
-          error: false,
-          data: {
-            _id: user._id,
-            name: user.name,
-            email: user.email,
-            role: user.role,
-            createdAt: user.createdAt,
-            updatedAt: user.updatedAt,
-            token,
-          },
-          message: "User registered successfully!",
-        });
-      }
-    );
+    return res.status(201).json({
+      success: true,
+      error: false,
+      data: {
+        _id: user._id,
+        name: user.name,
+        email: user.email,
+        role: user.role,
+        createdAt: user.createdAt,
+        updatedAt: user.updatedAt,
+        token,
+      },
+      message: "User registered successfully!",
+    });
   } catch (error) {
     debug(error);
     res.status(500).json({
