@@ -9,8 +9,9 @@ const createJWT = require("../../utils/createJWT.util");
 const register = async (req, res) => {
   const { name, email, password } = req.body;
 
+  debug("Request POST /api/users/register");
+
   try {
-    debug("Request POST /api/users/register");
     // Register a new user
     let user = await User.findOne({ email });
 
