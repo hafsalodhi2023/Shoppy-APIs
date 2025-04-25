@@ -15,13 +15,16 @@ const register = async (req, res) => {
     // Register a new user
     let user = await User.findOne({ email });
 
-    if (user)
+    if (user) {
+      debug("User already exists!");
+
       return res.status(400).json({
         success: false,
         error: true,
         data: null,
         message: "User already exists!",
       });
+    }
 
     user = new User({ name, email, password });
     await user.save();
@@ -37,16 +40,18 @@ const register = async (req, res) => {
     const [err, token] = await createJWT(payload, 30 * 24 * 60 * 60);
     if (err) throw err;
 
+    debug("User registered successfully!");
+
     return res.status(201).json({
       success: true,
       error: false,
       data: {
-        _id: user._id,
-        name: user.name,
-        email: user.email,
-        role: user.role,
-        createdAt: user.createdAt,
-        updatedAt: user.updatedAt,
+        user: {
+          _id: user._id,
+          name: user.name,
+          email: user.email,
+          role: user.role,
+        },
         token,
       },
       message: "User registered successfully!",
