@@ -1,9 +1,14 @@
 const express = require("express");
 
-const register = require("../controllers/users/register.user.controller");
-const login = require("../controllers/users/login.user.controller");
+// Import controllers
+const register = require("../controllers/users/register.user.controller"); // Import register controller
+const login = require("../controllers/users/login.user.controller"); // Import login controller
+const profile = require("../controllers/users/profile.user.controller"); // Import profile controller
 
-const router = express.Router();
+// Import middlewares
+const auth = require("../middlewares/auth.middleware"); // Import auth middleware
+
+const router = express.Router(); // Create router
 
 // @route POST /api/users/register
 // @desc Register user
@@ -14,5 +19,10 @@ router.post("/register", register);
 // @desc Login user
 // @access Public
 router.post("/login", login);
+
+// @route GET /api/users/profile
+// @desc Get user profile
+// @access Private
+router.get("/profile", auth, profile);
 
 module.exports = router;

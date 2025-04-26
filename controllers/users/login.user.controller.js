@@ -16,7 +16,7 @@ const login = async (req, res) => {
     const user = await User.findOne({ email });
 
     if (!user) {
-      debug("Invalid credentials.");
+      debug("Request POST /api/users/login: Invalid credentials.");
 
       return res.status(400).json({
         success: false,
@@ -29,7 +29,7 @@ const login = async (req, res) => {
     const isMatch = await user.matchPassword(password);
 
     if (!isMatch) {
-      debug("Invalid credentials.");
+      debug("Request POST /api/users/login: Invalid credentials.");
 
       return res.status(400).json({
         success: false,
@@ -50,7 +50,7 @@ const login = async (req, res) => {
     const [err, token] = await createJWT(payload, 30 * 24 * 60 * 60);
     if (err) throw err;
 
-    debug("User logged in successfully!");
+    debug("Request POST /api/users/login: User logged in successfully!");
 
     return res.status(200).json({
       success: true,
@@ -67,7 +67,7 @@ const login = async (req, res) => {
       message: "User logged in successfully!",
     });
   } catch (error) {
-    debug(error);
+    debug("Request POST /api/users/login:", error);
     res.status(500).json({
       success: false,
       error: true,

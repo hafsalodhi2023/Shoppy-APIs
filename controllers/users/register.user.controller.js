@@ -16,7 +16,7 @@ const register = async (req, res) => {
     let user = await User.findOne({ email });
 
     if (user) {
-      debug("User already exists!");
+      debug("Request POST /api/users/register: User already exists!");
 
       return res.status(400).json({
         success: false,
@@ -40,7 +40,7 @@ const register = async (req, res) => {
     const [err, token] = await createJWT(payload, 30 * 24 * 60 * 60);
     if (err) throw err;
 
-    debug("User registered successfully!");
+    debug("Request POST /api/users/register: User registered successfully!");
 
     return res.status(201).json({
       success: true,
@@ -57,7 +57,7 @@ const register = async (req, res) => {
       message: "User registered successfully!",
     });
   } catch (error) {
-    debug(error);
+    debug("Request POST /api/users/register: ", error);
     res.status(500).json({
       success: false,
       error: true,
