@@ -9,7 +9,7 @@ const isAdmin = require("../middlewares/isadmin.middleware"); // Import isAdmin 
 
 const router = express.Router(); // Create router
 
-// @route POST /api/products/create
+// @route POST /api/products/creat
 // @desc Create new product
 // @access Private/Admin
 router.post("/create", auth, isAdmin, create);
