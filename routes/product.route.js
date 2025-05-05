@@ -14,9 +14,9 @@ const router = express.Router(); // Create router
 // @access Private/Admin
 router.post("/create", auth, isAdmin, create);
 
-// @route PUT /api/products/:id
-// @desc Update product
+// @route PUT /api/products/update/:id
+// @desc Update an existing product
 // @access Private/Admin
-router.put("/:id", auth, isAdmin, update);
+router.put("/update/:id", auth, isAdmin, update);
 
 module.exports = router; // Export router
