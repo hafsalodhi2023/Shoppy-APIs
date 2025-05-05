@@ -2,6 +2,7 @@ const express = require("express");
 
 const create = require("../controllers/products/create.product.controller"); // Import create product controller
 const update = require("../controllers/products/update.product.controller"); // Import update product controller
+const deleete = require("../controllers/products/delete.product.controller"); // Import delete product controller
 
 // Import middlewares
 const auth = require("../middlewares/auth.middleware"); // Import auth middleware
@@ -18,5 +19,10 @@ router.post("/create", auth, isAdmin, create);
 // @desc Update an existing product
 // @access Private/Admin
 router.put("/update/:id", auth, isAdmin, update);
+
+// @route GET /api/products/delete/:id
+// @desc Delete a product
+// @access Private/Admin
+router.delete("/delete/:id", auth, isAdmin, deleete);
 
 module.exports = router; // Export router
