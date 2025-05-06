@@ -4,7 +4,8 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "dev": "set DEBUG=server:*  && nodemon app.js"
+    "dev": "set DEBUG=server:*  && nodemon app.js",
+    "seed": "node ./seeder.js"
   },
   "keywords": [],
   "author": "",
