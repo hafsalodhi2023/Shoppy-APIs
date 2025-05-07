@@ -25,4 +25,5 @@ router.put("/update/:id", auth, isAdmin, update);
 // @access Private/Admin
 router.delete("/delete/:id", auth, isAdmin, deleete);
 
-module.exports = router; // Export router
+// Export router
+module.exports = router;
