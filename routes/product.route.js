@@ -4,6 +4,7 @@ const create = require("../controllers/products/create.product.controller"); // 
 const update = require("../controllers/products/update.product.controller"); // Import update product controller
 const deleete = require("../controllers/products/delete.product.controller"); // Import delete product controller
 const filter = require("../controllers/products/filter.product.controller"); // Import filter product controller
+const getOne = require("../controllers/products/getOne.product.controller"); // Import get one product controller
 
 // Import middlewares
 const auth = require("../middlewares/auth.middleware"); // Import auth middleware
@@ -30,6 +31,11 @@ router.delete("/delete/:id", auth, isAdmin, deleete);
 // @desc Get all products with optional query filters
 // @access Public
 router.get("/", filter);
+
+// @route GET /api/products/:id
+// @desc Get a single product by ID
+// @access Public
+router.get("/:id", getOne);
 
 // Export router
 module.exports = router;
