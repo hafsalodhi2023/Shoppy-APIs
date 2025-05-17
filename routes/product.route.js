@@ -4,9 +4,10 @@ const create = require("../controllers/products/create.product.controller"); // 
 const update = require("../controllers/products/update.product.controller"); // Import update product controller
 const deleete = require("../controllers/products/delete.product.controller"); // Import delete product controller
 const filter = require("../controllers/products/filter.product.controller"); // Import filter product controller
+const bestSeller = require("../controllers/products/bestSeller.product.controller"); // Import best seller product controller
+const newArrivals = require("../controllers/products/newArrivals.product.controller"); // Import best seller product controller
 const getOne = require("../controllers/products/getOne.product.controller"); // Import get one product controller
 const similar = require("../controllers/products/similar.product.controller"); // Import similar product controller
-const bestSeller = require("../controllers/products/bestSeller.product.controller"); // Import best seller product controller
 
 // Import middlewares
 const auth = require("../middlewares/auth.middleware"); // Import auth middleware
@@ -38,6 +39,11 @@ router.get("/", filter);
 // @desc Retrieve the products with the highest ratings
 // @access Public
 router.get("/best-seller", bestSeller);
+
+// @route GET /api/products/new-arrivals
+// @desc Retrieve latest 8 products - Creation date
+// @access Public
+router.get("/new-arrivals", newArrivals);
 
 // @route GET /api/products/:id
 // @desc Get a single product by ID
