@@ -6,6 +6,7 @@ const deleete = require("../controllers/products/delete.product.controller"); //
 const filter = require("../controllers/products/filter.product.controller"); // Import filter product controller
 const getOne = require("../controllers/products/getOne.product.controller"); // Import get one product controller
 const similar = require("../controllers/products/similar.product.controller"); // Import similar product controller
+const bestSeller = require("../controllers/products/bestSeller.product.controller"); // Import best seller product controller
 
 // Import middlewares
 const auth = require("../middlewares/auth.middleware"); // Import auth middleware
@@ -42,6 +43,11 @@ router.get("/:id", getOne);
 // @desc retrieve similar products based on current product' s gender and category
 // @access Public
 router.get("/similar/:id", similar);
+
+// @route GET /api/products/best-seller
+// @desc Retrieve the products with the highest ratings
+// @access Public
+router.get("/best-seller", bestSeller);
 
 // Export router
 module.exports = router;
