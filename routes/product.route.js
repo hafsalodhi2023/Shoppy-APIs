@@ -34,6 +34,11 @@ router.delete("/delete/:id", auth, isAdmin, deleete);
 // @access Public
 router.get("/", filter);
 
+// @route GET /api/products/best-seller
+// @desc Retrieve the products with the highest ratings
+// @access Public
+router.get("/best-seller", bestSeller);
+
 // @route GET /api/products/:id
 // @desc Get a single product by ID
 // @access Public
@@ -43,11 +48,6 @@ router.get("/:id", getOne);
 // @desc retrieve similar products based on current product' s gender and category
 // @access Public
 router.get("/similar/:id", similar);
-
-// @route GET /api/products/best-seller
-// @desc Retrieve the products with the highest ratings
-// @access Public
-router.get("/best-seller", bestSeller);
 
 // Export router
 module.exports = router;
