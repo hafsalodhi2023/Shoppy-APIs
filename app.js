@@ -8,6 +8,7 @@ const debug = require("debug")("server:app.js");
 // Import routes
 const userRoutes = require("./routes/user.route.js"); // Import user routes
 const productRoutes = require("./routes/product.route.js"); // Import product routes
+const cartRoutes = require("./routes/cart.route.js"); // Import cart routes
 
 // Import database connection configuration
 const connectDB = require("./config/db.config.js");
@@ -28,6 +29,7 @@ connectDB();
 // API Routes
 app.use("/api/users", userRoutes); // Mount user routes
 app.use("/api/products", productRoutes); // Mount product routes
+app.use("/api/carts", cartRoutes); // Mount cart routes
 
 // Start the server
 app.listen(PORT, () => {
