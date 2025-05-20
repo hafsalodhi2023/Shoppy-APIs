@@ -1,6 +1,7 @@
 const express = require("express");
 
 const create = require("../controllers/carts/create.cart.controller"); // Import create cart controller
+const update = require("../controllers/carts/update.cart.controller"); // Import update cart controller
 
 // Import middlewares
 const auth = require("../middlewares/auth.middleware"); // Import auth middleware
@@ -11,5 +12,10 @@ const router = express.Router(); // Create router
 // @desc Add a product to the cart for a guest or logged in user
 // @access Public
 router.post("/create", create);
+
+// @route PUT /api/cart/update
+// @desc Update the quantity of a product in the cart for the guest or logged in user
+// @access Public
+router.put("/update", update);
 
 module.exports = router; // Export the router
