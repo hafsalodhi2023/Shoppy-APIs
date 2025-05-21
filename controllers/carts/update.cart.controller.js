@@ -31,7 +31,7 @@ const update = async (req, res) => {
 
     if (productIndex > -1) {
       if (quantity > 0) {
-        cart.products[productIndex].quantity += Number(quantity);
+        cart.products[productIndex].quantity = Number(quantity);
       } else {
         cart.products.splice(productIndex, 1);
       }
