@@ -2,9 +2,6 @@ const debug = require("debug")(
   "server:controllers:carts:delete.cart.controller.js"
 );
 
-const Product = require("../../models/product.model"); // Import Product model
-const Cart = require("../../models/cart.model"); // Import Cart model
-
 const getCart = require("../../utils/getCart.util"); // Import getCart utility
 
 const deleete = async (req, res) => {
