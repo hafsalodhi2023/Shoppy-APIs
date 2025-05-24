@@ -4,6 +4,7 @@ const create = require("../controllers/carts/create.cart.controller"); // Import
 const update = require("../controllers/carts/update.cart.controller"); // Import update cart controller
 const deleete = require("../controllers/carts/delete.cart.controller"); // Import delete cart controller
 const getAll = require("../controllers/carts/getAll.cart.controller"); // Import get cart controller
+const merge = require("../controllers/carts/merge.cart.controller"); // Import merge cart controller
 
 // Import middlewares
 const auth = require("../middlewares/auth.middleware"); // Import auth middleware
@@ -29,4 +30,10 @@ router.delete("/delete", deleete);
 // @desc Get the cart for the guest or logged in user
 // @access Public
 router.get("/get-all", getAll);
+
+// @route POST /api/cart/merge
+// @desc Merge the cart for the guest with the logged in user's cart
+// @access Private
+router.post("/merge", auth, merge);
+
 module.exports = router; // Export the router
