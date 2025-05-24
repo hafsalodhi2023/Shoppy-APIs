@@ -3,6 +3,7 @@ const express = require("express");
 const create = require("../controllers/carts/create.cart.controller"); // Import create cart controller
 const update = require("../controllers/carts/update.cart.controller"); // Import update cart controller
 const deleete = require("../controllers/carts/delete.cart.controller"); // Import delete cart controller
+const getAll = require("../controllers/carts/getAll.cart.controller"); // Import get cart controller
 
 // Import middlewares
 const auth = require("../middlewares/auth.middleware"); // Import auth middleware
@@ -24,4 +25,8 @@ router.put("/update", update);
 // @access Public
 router.delete("/delete", deleete);
 
+// @route GET /api/cart/get
+// @desc Get the cart for the guest or logged in user
+// @access Public
+router.get("/get-all", getAll);
 module.exports = router; // Export the router
