@@ -1,12 +1,25 @@
+/**
+ * Debug logger for product update operations
+ */
 const debug = require("debug")(
   "server:controllers:products:update.product.controller.js"
 );
 
-const Product = require("../../models/product.model"); // Import Product model
+/**
+ * Import the Product model for database operations
+ */
+const Product = require("../../models/product.model");
 
+/**
+ * Updates an existing product in the database
+ * @param {Object} req - Express request object containing product data in body and product ID in params
+ * @param {Object} res - Express response object
+ * @returns {Object} JSON response with updated product or error message
+ */
 const update = async (req, res) => {
   debug("Request PUT /api/products/update/:id");
   try {
+    // Destructure all possible product fields from request body
     const {
       name,
       description,
@@ -27,12 +40,13 @@ const update = async (req, res) => {
       dimensions,
       weight,
       sku,
-    } = req.body; // Get product data from request body
+    } = req.body;
 
-    // Find product by ID
+    // Attempt to find the product by ID in the database
     const product = await Product.findById(req.params.id);
 
     if (product) {
+      // Update each field if provided in request, otherwise keep existing value
       product.name = name || product.name;
       product.description = description || product.description;
       product.price = price || product.price;
@@ -47,6 +61,7 @@ const update = async (req, res) => {
       product.gender = gender || product.gender;
       product.images = images || product.images;
 
+      // Special handling for boolean fields to allow false values
       product.isFeatured =
         isFeatured !== undefined ? isFeatured : product.isFeatured;
 
@@ -57,7 +72,8 @@ const update = async (req, res) => {
       product.dimensions = dimensions || product.dimensions;
       product.weight = weight || product.weight;
       product.sku = sku || product.sku;
-      // Save updated product to database
+
+      // Persist the updated product to database
       const updatedProduct = await product.save();
 
       debug(
@@ -70,6 +86,7 @@ const update = async (req, res) => {
         message: "Product updated successfully.",
       });
     } else {
+      // Handle case when product is not found
       debug(
         "Request PUT /api/products/update/:id: Product not found with ID: ",
         req.params.id
@@ -82,6 +99,7 @@ const update = async (req, res) => {
       });
     }
   } catch (error) {
+    // Handle any unexpected errors during update operation
     debug("Request PUT /api/products/update/:id: ", error);
     return res.status(500).json({
       success: false,

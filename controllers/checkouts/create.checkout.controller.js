@@ -2,7 +2,7 @@ const debug = require("debug")(
   "server:controllers:checkouts:create.checkout.controller.js"
 );
 
-const Checkout = require("../../models/Checkout"); // Import Checkout model
+const Checkout = require("../../models/checkout.model"); // Import Checkout model
 
 const create = async (req, res) => {
   const { checkoutItems, shippingAddress, paymentMethod, totalPrice } =
