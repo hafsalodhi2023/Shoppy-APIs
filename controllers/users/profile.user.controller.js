@@ -1,3 +1,4 @@
+// @collapse
 const debug = require("debug")(
   "server:controllers:users:profile.user.controller.js"
 );

@@ -1,3 +1,4 @@
+// @collapse
 const mongoose = require("mongoose");
 const debug = require("debug")("server:config:db.config.js");
 

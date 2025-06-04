@@ -1,3 +1,4 @@
+// @collapse
 const mongoose = require("mongoose");
 const bcryptjs = require("bcryptjs");
 

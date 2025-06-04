@@ -1,3 +1,4 @@
+// @collapse
 const Cart = require("../models/cart.model"); // Import Cart model
 
 let getCart = async (guestId, userId) => {

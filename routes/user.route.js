@@ -1,3 +1,4 @@
+// @collapse
 const express = require("express");
 
 // Import controllers

@@ -1,3 +1,4 @@
+// @collapse
 const debug = require("debug")(
   "server:controllers:products:filter.product.controller.js"
 );

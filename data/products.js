@@ -1,3 +1,4 @@
+// @collapse
 // product.js:
 
 const products = [

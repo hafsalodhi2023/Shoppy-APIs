@@ -1,3 +1,4 @@
+// @collapse
 const debug = require("debug")("server:seeder.js");
 
 const dotenv = require("dotenv");

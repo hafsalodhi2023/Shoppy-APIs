@@ -1,3 +1,4 @@
+// @collapse
 const debug = require("debug")("server:middlewares:auth.middleware.js");
 const User = require("../models/user.model.js");
 const jwt = require("jsonwebtoken");

@@ -1,3 +1,4 @@
+// @collapse
 /**
  * Debug logger for product update operations
  */

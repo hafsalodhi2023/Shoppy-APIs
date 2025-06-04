@@ -1,3 +1,4 @@
+// @collapse
 const jwt = require("jsonwebtoken");
 
 const createJWT = (payload, expiry = "1h") => {
