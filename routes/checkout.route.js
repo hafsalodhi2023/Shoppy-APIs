@@ -17,7 +17,7 @@ router.post("/create", auth, create);
 // @route PUT /api/checkout/:id
 // @desc Update checkout to mark as paid after successful payment
 // @access Private
-router.put("/:id", auth, update);
+router.put("/:id/pay", auth, update);
 
 // Export router
 module.exports = router;
