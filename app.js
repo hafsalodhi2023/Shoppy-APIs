@@ -1,4 +1,3 @@
-// @collapse
 require("dotenv").config();
 
 // Import necessary modules
@@ -29,10 +28,10 @@ const PORT = process.env.PORT || 3000;
 connectDB();
 
 // API Routes
-app.use("/api/users", userRoutes); // Mount user routes
-app.use("/api/products", productRoutes); // Mount product routes
-app.use("/api/carts", cartRoutes); // Mount cart routes
-app.use("/api/checkouts", checkoutRoutes); // Mount checkout routes
+app.use("/api/users", userRoutes); // Mount users routes
+app.use("/api/products", productRoutes); // Mount products routes
+app.use("/api/carts", cartRoutes); // Mount carts routes
+app.use("/api/checkouts", checkoutRoutes); // Mount checkouts routes
 
 // Start the server
 app.listen(PORT, () => {
