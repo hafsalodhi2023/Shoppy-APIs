@@ -32,7 +32,7 @@ connectDB();
 app.use("/api/users", userRoutes); // Mount user routes
 app.use("/api/products", productRoutes); // Mount product routes
 app.use("/api/carts", cartRoutes); // Mount cart routes
-app.use("/api/checkout", checkoutRoutes); // Mount checkout routes
+app.use("/api/checkouts", checkoutRoutes); // Mount checkout routes
 
 // Start the server
 app.listen(PORT, () => {
