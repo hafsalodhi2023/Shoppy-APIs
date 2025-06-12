@@ -1,3 +1,4 @@
+// @collapse
 require("dotenv").config();
 
 // Import necessary modules
