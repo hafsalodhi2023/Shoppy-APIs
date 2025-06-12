@@ -1,10 +1,10 @@
-// @collapse
+// @
 const mongoose = require("mongoose");
 
 const orderItemSchema = new mongoose.Schema(
   {
     productId: {
-      typ: mongoose.Schema.Types.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       ref: "Product",
       required: true,
     },
