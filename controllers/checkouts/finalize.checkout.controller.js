@@ -1,4 +1,3 @@
-// @collapse
 const debug = require("debug")(
   "server:controllers:checkouts:finalize.checkout.controller.js"
 );
@@ -26,8 +25,8 @@ const finalize = async (req, res) => {
       // Create final order based on the checkout details
       const finalOrder = await Order.create({
         user: checkout.user,
-        orderItems: checkout.orderItems,
-        shippingAddress: checkout.shippingAddress,
+        orderItems: checkout.checkoutItems,
+        shippingDetails: checkout.shippingDetails,
         paymentMethod: checkout.paymentMethod,
         totalPrice: checkout.totalPrice,
         isPaid: true,
@@ -70,7 +69,7 @@ const finalize = async (req, res) => {
       });
     }
   } catch (error) {
-    debug("Request POST /api/checkout/:id: Error finalizing checkout");
+    debug("Request POST /api/checkout/:id: Error finalizing checkout", error);
     return res.status(500).json({
       success: false,
       error: true,

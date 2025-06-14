@@ -2,7 +2,7 @@
 const express = require("express");
 
 const create = require("../controllers/checkouts/create.checkout.controller");
-const update = require("../controllers/checkouts/update.checkout.controller");
+const pay = require("../controllers/checkouts/pay.checkout.controller");
 const finalize = require("../controllers/checkouts/finalize.checkout.controller"); // Import finalize checkout controller
 
 // Import middlewares
@@ -18,7 +18,7 @@ router.post("/create", auth, create);
 // @route PUT /api/checkout/:id
 // @desc Update checkout to mark as paid after successful payment
 // @access Private
-router.put("/:id/pay", auth, update);
+router.put("/:id/pay", auth, pay);
 
 // @route POST /api/checkout/:id/finalize
 // @desc Finalize checkout after successful payment

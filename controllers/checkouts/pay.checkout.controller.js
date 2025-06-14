@@ -5,7 +5,7 @@ const debug = require("debug")(
 
 const Checkout = require("../../models/checkout.model"); // Import Checkout model
 
-const update = async (req, res) => {
+const pay = async (req, res) => {
   const { paymentStatus, paymentDetails } = req.body;
 
   try {
@@ -56,4 +56,4 @@ const update = async (req, res) => {
   }
 };
 
-module.exports = update;
+module.exports = pay;

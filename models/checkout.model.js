@@ -1,4 +1,3 @@
-// @collapse
 const mongoose = require("mongoose");
 
 const checkoutItemSchema = new mongoose.Schema(
@@ -17,6 +16,10 @@ const checkoutItemSchema = new mongoose.Schema(
       required: true,
     },
     price: {
+      type: Number,
+      required: true,
+    },
+    quantity: {
       type: Number,
       required: true,
     },
