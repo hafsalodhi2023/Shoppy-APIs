@@ -5,6 +5,7 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const debug = require("debug")("server:app.js");
+const cloudinary = require("cloudinary").v2;
 
 // Import routes
 const userRoutes = require("./routes/user.route.js"); // Import user routes
@@ -12,6 +13,7 @@ const productRoutes = require("./routes/product.route.js"); // Import product ro
 const cartRoutes = require("./routes/cart.route.js"); // Import cart routes
 const checkoutRoutes = require("./routes/checkout.route.js"); // Import checkout routes
 const orderRoutes = require("./routes/order.route.js"); // Import order routes
+const uploadRoutes = require("./routes/upload.route.js"); // Import upload routes
 
 // Import database connection configuration
 const connectDB = require("./config/db.config.js");
@@ -29,12 +31,20 @@ const PORT = process.env.PORT || 3000;
 // Connect to the database
 connectDB();
 
+// Cloudinary configuration
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
+
 // API Routes
 app.use("/api/users", userRoutes); // Mount users routes
 app.use("/api/products", productRoutes); // Mount products routes
 app.use("/api/carts", cartRoutes); // Mount carts routes
 app.use("/api/checkouts", checkoutRoutes); // Mount checkouts routes
 app.use("/api/orders", orderRoutes); // Mount orders routes
+app.use("/api/uploads", uploadRoutes); // Mount upload routes
 
 // Start the server
 app.listen(PORT, () => {
