@@ -3,7 +3,6 @@ require("dotenv").config();
 
 const express = require("express");
 const multer = require("multer");
-const streamifier = require("streamifier");
 
 const create = require("../controllers/uploads/upload.upload.controller");
 
