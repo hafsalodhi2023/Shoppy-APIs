@@ -6,7 +6,7 @@ const GetAllUsers = require("../controllers/admins/getUsers.admin.controller");
 
 // Import middlewares
 const auth = require("../middlewares/auth.middleware"); // Import auth middleware
-const admin = require("../middlewares/admin.middleware"); // Import admin middleware
+const admin = require("../middlewares/isadmin.middleware"); // Import admin middleware
 
 const router = express.Router();
 
