@@ -5,7 +5,7 @@ const debug = require("debug")(
 
 const User = require("../../models/user.model");
 
-const GetAllUsers = async (req, res) => {
+const getAllUsers = async (req, res) => {
   debug("Request GET /api/admins/users");
   try {
     const users = await User.find();
@@ -27,4 +27,4 @@ const GetAllUsers = async (req, res) => {
   }
 };
 
-module.exports = GetAllUsers;
+module.exports = getAllUsers;
