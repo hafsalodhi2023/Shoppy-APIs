@@ -48,7 +48,7 @@ app.use("/api/checkouts", checkoutRoutes); // Mount checkouts routes
 app.use("/api/orders", orderRoutes); // Mount orders routes
 app.use("/api/uploads", uploadRoutes); // Mount upload routes
 app.use("/api/subscribers", subscriberRoutes); // Mount subscriber routes
-app.use("/api/admin", adminRoutes); // Mount admin routes
+app.use("/api/admins", adminRoutes); // Mount admin routes
 
 // Start the server
 app.listen(PORT, () => {
