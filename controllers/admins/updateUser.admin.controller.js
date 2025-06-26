@@ -1,3 +1,4 @@
+// @collapse
 const debug = require("debug")(
   "server:controllers:admins:updateUser.admin.controller.js"
 );
