@@ -1,4 +1,3 @@
-// @collapse
 const debug = require("debug")(
   "server:controllers:admins:updateUser.admin.controller.js"
 );
@@ -9,7 +8,7 @@ const updateUser = async (req, res) => {
   try {
     debug("Request PUT /api/admins/users/:id");
     const { id } = req.params;
-    const { email, password, role } = req.body;
+    const { name, email, password, role } = req.body;
     const user = await User.findById(id);
     if (!user) {
       return res.status(404).json({
@@ -19,6 +18,7 @@ const updateUser = async (req, res) => {
         message: "User not found",
       });
     }
+    user.name = name || user.name;
     user.email = email || user.email;
     user.password = password || user.password;
     user.role = role || user.role;
