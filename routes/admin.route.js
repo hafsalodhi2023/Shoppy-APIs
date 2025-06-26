@@ -5,6 +5,7 @@ const express = require("express");
 const getAllUsers = require("../controllers/admins/getUsers.admin.controller");
 const createUser = require("../controllers/admins/createUser.admin.controller");
 const updateUser = require("../controllers/admins/updateUser.admin.controller");
+const deleteUser = require("../controllers/admins/deleteUser.admin.controller");
 
 // Import middlewares
 const auth = require("../middlewares/auth.middleware"); // Import auth middleware
@@ -26,5 +27,10 @@ router.post("/users", [auth, admin], createUser);
 // @desc Update a user
 // @access Private (Admin only)
 router.put("/users/:id", [auth, admin], updateUser);
+
+// @route DELETE /api/admin/users/:id
+// @desc Delete a user
+// @access Private (Admin only)
+router.delete("/users/:id", [auth, admin], deleteUser);
 
 module.exports = router;
