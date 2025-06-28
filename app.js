@@ -16,6 +16,7 @@ const orderRoutes = require("./routes/order.route.js"); // Import order routes
 const uploadRoutes = require("./routes/upload.route.js"); // Import upload routes
 const subscriberRoutes = require("./routes/subscriber.route.js"); // Import subscriber routes
 const adminRoutes = require("./routes/admin.route.js"); // Import admin routes
+const adminProductRoutes = require("./routes/productAdmin.route.js"); // Import admin product routes
 
 // Import database connection configuration
 const connectDB = require("./config/db.config.js");
@@ -48,7 +49,10 @@ app.use("/api/checkouts", checkoutRoutes); // Mount checkouts routes
 app.use("/api/orders", orderRoutes); // Mount orders routes
 app.use("/api/uploads", uploadRoutes); // Mount upload routes
 app.use("/api/subscribers", subscriberRoutes); // Mount subscriber routes
-app.use("/api/admins", adminRoutes); // Mount admin routes
+
+// Admin routes
+app.use("/api/admin/users", adminRoutes); // Mount admin routes
+app.use("/api/admin/products", adminProductRoutes); // Mount admin product routes
 
 // Start the server
 app.listen(PORT, () => {

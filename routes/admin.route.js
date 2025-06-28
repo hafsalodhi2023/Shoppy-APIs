@@ -16,21 +16,21 @@ const router = express.Router();
 // @route GET /api/admin/users
 // @desc Get all users
 // @access Private (Admin only)
-router.get("/users", [auth, admin], getAllUsers);
+router.get("/get-all", [auth, admin], getAllUsers);
 
 // @route POST /api/admin/users
 // @desc Create a new user
 // @access Private (Admin only)
-router.post("/users", [auth, admin], createUser);
+router.post("/create", [auth, admin], createUser);
 
 // @route PUT /api/admin/users/:id
 // @desc Update a user
 // @access Private (Admin only)
-router.put("/users/:id", [auth, admin], updateUser);
+router.put("/update/:id", [auth, admin], updateUser);
 
 // @route DELETE /api/admin/users/:id
 // @desc Delete a user
 // @access Private (Admin only)
-router.delete("/users/:id", [auth, admin], deleteUser);
+router.delete("/delete/:id", [auth, admin], deleteUser);
 
 module.exports = router;
