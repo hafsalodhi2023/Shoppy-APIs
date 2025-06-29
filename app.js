@@ -17,6 +17,7 @@ const uploadRoutes = require("./routes/upload.route.js"); // Import upload route
 const subscriberRoutes = require("./routes/subscriber.route.js"); // Import subscriber routes
 const adminRoutes = require("./routes/admin.route.js"); // Import admin routes
 const adminProductRoutes = require("./routes/productAdmin.route.js"); // Import admin product routes
+const orderAdminRoutes = require("./routes/orderAdmin.route.js"); // Import admin order routes
 
 // Import database connection configuration
 const connectDB = require("./config/db.config.js");
@@ -53,6 +54,7 @@ app.use("/api/subscribers", subscriberRoutes); // Mount subscriber routes
 // Admin routes
 app.use("/api/admin/users", adminRoutes); // Mount admin routes
 app.use("/api/admin/products", adminProductRoutes); // Mount admin product routes
+app.use("/api/admin/orders", orderAdminRoutes); // Mount admin order routes
 
 // Start the server
 app.listen(PORT, () => {
