@@ -30,7 +30,6 @@ const pay = async (req, res) => {
 
       debug("Request PUT /api/checkout/:id: Checkout updated successfully!");
       return res.status(200).json({
-        success: true,
         error: false,
         data: checkout,
         message: "Checkout updated successfully",

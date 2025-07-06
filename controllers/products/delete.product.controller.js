@@ -1,4 +1,4 @@
- = require("debug")(
+const debug = require("debug")(
   "server:controllers:products:delete.product.controller.js"
 );
 
@@ -17,7 +17,6 @@ const deleete = async (req, res) => {
         "Request DELETE /api/products/delete/:id: Product deleted successfully"
       );
       return res.status(200).json({
-        success: true,
         error: false,
         data: null,
         message: "Product deleted successfully",

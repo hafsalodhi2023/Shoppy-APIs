@@ -1,4 +1,4 @@
- = require("debug")(
+const debug = require("debug")(
   "server:controllers:subscribers:subscribe.subscriber.controller.js"
 );
 
@@ -40,7 +40,6 @@ const subscribe = async (req, res) => {
 
     debug("Request POST /api/subscribers/subscribe - Subscribed successfully.");
     return res.status(200).json({
-      success: true,
       error: false,
       data: null,
       message: "Subscribed successfully.",

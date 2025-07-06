@@ -1,4 +1,4 @@
- = require("debug")(
+const debug = require("debug")(
   "server:controllers:productAdmins:getAll.productAdmin.controller.js"
 );
 
@@ -12,7 +12,6 @@ const getAll = async (req, res) => {
       "Request GET /api/admin/products/get-all - Products fetched successfully"
     );
     return res.status(200).json({
-      success: true,
       error: false,
       data: products,
       message: "Products fetched successfully",

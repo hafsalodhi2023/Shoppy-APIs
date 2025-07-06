@@ -1,4 +1,4 @@
- = require("debug")(
+const debug = require("debug")(
   "server:controllers:products:newArrivals.product.controller.js"
 );
 
@@ -14,7 +14,6 @@ const newArrivals = async (req, res) => {
         "Request GET /api/products/new-arrivals: New arrivals fetched successfully!"
       );
       return res.status(200).json({
-        success: true,
         error: false,
         data: newArrival,
         message: "New arrivals fetched successfully",

@@ -1,4 +1,4 @@
- = require("debug")(
+const debug = require("debug")(
   "server:controllers:products:bestSeller.product.controller.js"
 );
 
@@ -14,7 +14,6 @@ const bestSeller = async (req, res) => {
         "Request GET /api/products/best-seller: Best seller product found!"
       );
       return res.status(200).json({
-        success: true,
         error: false,
         data: bestSeller,
         message: "Best seller product found.",

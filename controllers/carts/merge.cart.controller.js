@@ -67,7 +67,6 @@ const merge = async (req, res) => {
         await guestCart.save(); // Save the updated guest cart as a user cart
         debug("Request POST /api/cart/merge: Guest cart merged into user cart");
         return res.status(200).json({
-          success: true,
           error: false,
           data: guestCart,
           message: "Guest cart merged into user cart",
@@ -78,7 +77,6 @@ const merge = async (req, res) => {
         // Guest cart has already been merged, return user's cart
         debug("Request POST /api/cart/merge: No guest cart found");
         return res.status(200).json({
-          success: true,
           error: false,
           data: userCart,
           message: "Returning user cart",

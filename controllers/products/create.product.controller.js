@@ -1,4 +1,4 @@
- = require("debug")(
+const debug = require("debug")(
   "server:controllers:products:create.product.controller.js"
 );
 
@@ -57,7 +57,6 @@ const create = async (req, res) => {
     debug("Request POST /api/products/create: Product created successfully!");
 
     res.status(201).json({
-      success: true,
       error: false,
       data: createdProduct,
       message: "Product created successfully.",

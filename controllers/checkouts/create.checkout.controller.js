@@ -36,7 +36,6 @@ const create = async (req, res) => {
       "Request POST /api/checkout/create: Checkout session created successfully!"
     );
     return res.status(201).json({
-      success: true,
       error: false,
       data: newCheckout,
       message: "Checkout session created successfully",

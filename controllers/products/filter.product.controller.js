@@ -1,4 +1,4 @@
- = require("debug")(
+const debug = require("debug")(
   "server:controllers:products:filter.product.controller.js"
 );
 const Product = require("../../models/product.model");
@@ -93,7 +93,6 @@ const filter = async (req, res) => {
 
     debug("Request GET /api/products: ", products);
     return res.status(200).json({
-      success: true,
       error: false,
       data: products,
       message: "Products filtered successfully!",

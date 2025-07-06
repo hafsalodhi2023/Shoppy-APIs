@@ -43,7 +43,6 @@ const update = async (req, res) => {
       await cart.save();
       debug("Request PUT /api/cart/update: Cart updated successfully");
       return res.status(200).json({
-        success: true,
         error: false,
         data: cart,
         message: "Cart updated successfully",

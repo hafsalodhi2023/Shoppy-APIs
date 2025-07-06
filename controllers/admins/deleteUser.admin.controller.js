@@ -20,7 +20,6 @@ const deleteUser = async (req, res) => {
     await user.deleteOne();
     debug("Request DELETE /api/admins/users/:id - User deleted");
     return res.status(200).json({
-      success: true,
       error: false,
       data: null,
       message: "User deleted",

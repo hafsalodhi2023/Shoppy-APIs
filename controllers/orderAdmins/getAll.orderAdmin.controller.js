@@ -1,4 +1,4 @@
- = require("debug")(
+const debug = require("debug")(
   "server:controllers:orderAdmins:getAll.orderAdmin.controller.js"
 );
 
@@ -12,7 +12,6 @@ const getAll = async (req, res) => {
       "Request GET /api/admin/orders/get-all - Orders retrieved successfully"
     );
     res.status(200).json({
-      success: true,
       error: false,
       data: orders,
       message: "Orders retrieved successfully",

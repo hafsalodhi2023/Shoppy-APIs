@@ -10,7 +10,6 @@ const getAllUsers = async (req, res) => {
     const users = await User.find();
     debug("Request GET /api/admins/users - Users fetched successfully.");
     return res.status(200).json({
-      success: true,
       error: false,
       data: users,
       message: "Users fetched successfully",

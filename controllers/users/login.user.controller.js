@@ -1,4 +1,4 @@
- = require("debug")(
+const debug = require("debug")(
   "server:controllers:users:login.user.controller.js"
 );
 
@@ -53,7 +53,6 @@ const login = async (req, res) => {
     debug("Request POST /api/users/login: User logged in successfully!");
 
     return res.status(200).json({
-      success: true,
       error: false,
       data: {
         user: {

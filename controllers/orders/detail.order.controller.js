@@ -1,4 +1,4 @@
- = require("debug")(
+const debug = require("debug")(
   "server:controllers:orders:detail.order.controller.js"
 );
 
@@ -24,7 +24,6 @@ const detail = async (req, res) => {
 
     debug("Request GET /api/orders/:id: Order fetched successfully");
     return res.status(200).json({
-      success: true,
       error: false,
       data: order,
       message: "Order fetched successfully",

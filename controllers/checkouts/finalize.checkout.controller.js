@@ -46,7 +46,6 @@ const finalize = async (req, res) => {
       await Cart.findOneAndDelete({ user: checkout.user });
       debug("Request POST /api/checkout/:id: Checkout finalized successfully");
       return res.status(201).json({
-        success: true,
         error: false,
         data: finalOrder,
         message: "Checkout finalized successfully",

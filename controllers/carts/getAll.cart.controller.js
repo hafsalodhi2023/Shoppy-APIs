@@ -12,7 +12,6 @@ const getAll = async (req, res) => {
     if (cart) {
       debug("Request GET /api/cart/getAll: Cart retrieved successfully");
       return res.status(200).json({
-        success: true,
         error: false,
         data: cart,
         message: "Cart retrieved successfully",

@@ -59,7 +59,6 @@ const create = async (req, res) => {
       await cart.save();
       debug("Request POST /api/cart/create: Cart updated successfully");
       res.status(200).json({
-        success: true,
         error: false,
         data: cart,
         message: "Cart updated successfully",
@@ -85,7 +84,6 @@ const create = async (req, res) => {
       await cart.save();
       debug("Request POST /api/cart/create: Cart created successfully");
       return res.status(201).json({
-        success: true,
         error: false,
         data: cart,
         message: "Cart created successfully",

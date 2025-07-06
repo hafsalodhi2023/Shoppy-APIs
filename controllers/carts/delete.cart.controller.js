@@ -36,7 +36,6 @@ const deleete = async (req, res) => {
       await cart.save();
       debug("Request DELETE /api/cart/delete: Cart updated successfully");
       return res.status(200).json({
-        success: true,
         error: false,
         data: cart,
         message: "Cart updated successfully",

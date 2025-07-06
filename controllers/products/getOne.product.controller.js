@@ -1,4 +1,4 @@
- = require("debug")(
+const debug = require("debug")(
   "server:controllers:products:getOne.product.controller.js"
 );
 
@@ -10,7 +10,6 @@ const getOne = async (req, res) => {
     if (product) {
       debug("Request GET /api/products/:id");
       return res.status(200).json({
-        success: true,
         error: false,
         data: product,
         message: "Product found",

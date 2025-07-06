@@ -1,4 +1,4 @@
- = require("debug")(
+const debug = require("debug")(
   "server:controllers:uploads:upload.upload.controller.js"
 );
 
@@ -45,7 +45,6 @@ const create = async (req, res) => {
     debug("Request POST /api/uploads/upload: File uploaded to Cloudinary");
     // Respond with the uploaded image URL
     return res.status(200).json({
-      success: true,
       error: false,
       data: result.secure_url,
       message: "File uploaded successfully.",

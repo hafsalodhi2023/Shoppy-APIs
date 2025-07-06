@@ -1,4 +1,4 @@
- = require("debug")(
+const debug = require("debug")(
   "server:controllers:orderAdmins:update.orderAdmin.controller.js"
 );
 
@@ -32,7 +32,6 @@ const updateOrder = async (req, res) => {
       "Request PUT /api/admin/orders/update/:id - Order updated successfully"
     );
     return res.status(200).json({
-      success: true,
       error: false,
       data: updatedOrder,
       message: "Order updated successfully",

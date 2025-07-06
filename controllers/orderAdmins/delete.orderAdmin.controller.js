@@ -1,4 +1,4 @@
- = require("debug")(
+const debug = require("debug")(
   "server:controllers:orderAdmins:delete.orderAdmin.controller.js"
 );
 
@@ -25,7 +25,7 @@ const deleteOrder = async (req, res) => {
       "Request DELETE /api/admin/orders/delete/:id - Order deleted successfully"
     );
     return res.status(200).json({
-      success: true,
+      
       error: false,
       data: null,
       message: "Order deleted successfully",

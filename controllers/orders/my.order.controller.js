@@ -1,4 +1,4 @@
- = require("debug")(
+const debug = require("debug")(
   "server:controllers:orders:my.order.controller.js"
 );
 
@@ -14,7 +14,6 @@ const myOrder = async (req, res) => {
     }); // Sort orders by creation date in descending order
     debug("Request GET /api/orders/my-orders: Orders fetched successfully!");
     return res.status(201).json({
-      success: true,
       error: false,
       data: orders,
       message: "Orders fetched successfully",

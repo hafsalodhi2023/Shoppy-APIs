@@ -25,7 +25,6 @@ const updateUser = async (req, res) => {
     await user.save();
     debug("Request PUT /api/admins/users/:id - User updated successfully.");
     return res.status(200).json({
-      success: true,
       error: false,
       data: user,
       message: "User updated successfully",

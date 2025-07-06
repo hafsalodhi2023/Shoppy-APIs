@@ -28,7 +28,6 @@ const createUser = async (req, res) => {
     await user.save();
     debug("Request POST /api/admins/users - User created successfully");
     return res.status(200).json({
-      success: true,
       error: false,
       data: null,
       message: "User created successfully",

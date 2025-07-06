@@ -1,4 +1,4 @@
- = require("debug")(
+const debug = require("debug")(
   "server:controllers:products:similar.product.controller.js"
 );
 
@@ -28,7 +28,6 @@ const similar = async (req, res) => {
 
     debug("Request GET /api/products/similar/:id: Similar products fetched");
     return res.status(200).json({
-      success: true,
       error: false,
       data: similarProducts,
       message: "Similar products fetched successfully",

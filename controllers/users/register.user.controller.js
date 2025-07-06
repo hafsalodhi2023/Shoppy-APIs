@@ -1,4 +1,4 @@
- = require("debug")(
+const debug = require("debug")(
   "server:controllers:users:register.user.controller.js"
 );
 
@@ -43,7 +43,6 @@ const register = async (req, res) => {
     debug("Request POST /api/users/register: User registered successfully!");
 
     return res.status(201).json({
-      success: true,
       error: false,
       data: {
         user: {

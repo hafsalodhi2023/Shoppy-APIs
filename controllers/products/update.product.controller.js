@@ -1,7 +1,3 @@
-// @collapse
-/**
- * Debug logger for product update operations
- */
 const debug = require("debug")(
   "server:controllers:products:update.product.controller.js"
 );
@@ -81,7 +77,6 @@ const update = async (req, res) => {
         "Request PUT /api/products/update/:id: Product updated successfully!"
       );
       return res.json({
-        success: true,
         error: false,
         data: updatedProduct,
         message: "Product updated successfully.",
