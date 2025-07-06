@@ -1,4 +1,3 @@
-
 const Product = require("../../models/product.model"); // Import Product model
 
 const similar = async (req, res) => {
@@ -18,14 +17,9 @@ const similar = async (req, res) => {
       category: product.category,
     }).limit(4);
 
-    return res.status(200).json({
-      data: similarProducts,
-      message: "Similar products fetched successfully",
-    });
+    return res.status(200).json(similarProducts);
   } catch (error) {
-    return res.status(500).json({
-      message: "Internal server error",
-    });
+    res.status(500).send("Server error");
   }
 };
 module.exports = similar;

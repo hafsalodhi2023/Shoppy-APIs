@@ -1,14 +1,5 @@
-/**
- * Import the Product model for database operations
- */
 const Product = require("../../models/product.model");
 
-/**
- * Updates an existing product in the database
- * @param {Object} req - Express request object containing product data in body and product ID in params
- * @param {Object} res - Express response object
- * @returns {Object} JSON response with updated product or error message
- */
 const update = async (req, res) => {
   try {
     // Destructure all possible product fields from request body
@@ -68,22 +59,17 @@ const update = async (req, res) => {
       // Persist the updated product to database
       const updatedProduct = await product.save();
 
-      return res.json({
-        data: updatedProduct,
-        message: "Product updated successfully.",
-      });
+      return res.json(updatedProduct);
     } else {
       // Handle case when product is not found
-   
+
       return res.status(404).json({
         message: "Product not found with ID: " + req.params.id,
       });
     }
   } catch (error) {
     // Handle any unexpected errors during update operation
-    return res.status(500).json({
-      message: "Error updating product.",
-    });
+    res.status(500).send("Server error");
   }
 };
 

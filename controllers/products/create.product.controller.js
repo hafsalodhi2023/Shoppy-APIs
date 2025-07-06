@@ -1,5 +1,3 @@
-
-
 const Product = require("../../models/product.model"); // Import Product model
 
 const create = async (req, res) => {
@@ -51,16 +49,9 @@ const create = async (req, res) => {
 
     const createdProduct = await product.save(); // Save product to database
 
-
-    res.status(201).json({
-      data: createdProduct,
-      message: "Product created successfully.",
-    }); // Send response with created product data
+    res.status(201).json(createdProduct); // Send response with created product data
   } catch (error) {
-
-    res.status(500).json({
-      message: "Internal server error.",
-    }); // Send error response if an error occurs
+    res.status(500).send("Server error");
   }
 };
 

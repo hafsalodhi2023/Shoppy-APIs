@@ -1,9 +1,7 @@
-
 const Product = require("../../models/product.model");
 
 const filter = async (req, res) => {
   try {
-
     const {
       collection,
       size,
@@ -88,14 +86,9 @@ const filter = async (req, res) => {
       .sort(sort)
       .limit(Number(limit) || undefined); // Handle 'undefined' for limit
 
-    return res.status(200).json({
-      data: products,
-      message: "Products filtered successfully!",
-    });
+    return res.status(200).json(products);
   } catch (error) {
-    return res.status(500).json({
-      message: "Internal server error",
-    });
+    res.status(500).send("Server error");
   }
 };
 

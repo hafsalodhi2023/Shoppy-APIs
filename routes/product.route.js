@@ -15,20 +15,20 @@ const isAdmin = require("../middlewares/isadmin.middleware"); // Import isAdmin 
 
 const router = express.Router(); // Create router
 
-// @route POST /api/products/create
+// @route POST /api/products
 // @desc Create new product
 // @access Private/Admin
-router.post("/create", auth, isAdmin, create);
+router.post("/", auth, isAdmin, create);
 
-// @route PUT /api/products/update/:id
+// @route PUT /api/products/:id
 // @desc Update an existing product
 // @access Private/Admin
-router.put("/update/:id", auth, isAdmin, update);
+router.put("/:id", auth, isAdmin, update);
 
-// @route GET /api/products/delete/:id
+// @route GET /api/products/:id
 // @desc Delete a product
 // @access Private/Admin
-router.delete("/delete/:id", auth, isAdmin, deleete);
+router.delete("/:id", auth, isAdmin, deleete);
 
 // @route GET /api/products
 // @desc Get all products with optional query filters
