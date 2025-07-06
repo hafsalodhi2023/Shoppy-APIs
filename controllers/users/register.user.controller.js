@@ -1,4 +1,3 @@
-
 const User = require("../../models/user.model.js"); // Import User model
 
 const createJWT = require("../../utils/createJWT.util");
@@ -6,13 +5,11 @@ const createJWT = require("../../utils/createJWT.util");
 const register = async (req, res) => {
   const { name, email, password } = req.body;
 
-
   try {
     // Register a new user
     let user = await User.findOne({ email });
 
     if (user) {
-
       return res.status(400).json({
         message: "User already exists!",
       });
@@ -24,14 +21,13 @@ const register = async (req, res) => {
     // Create JWT payload
     const payload = {
       user: {
-        _id: user._id,
+        id: user._id,
         role: user.role,
       },
     };
 
     const [err, token] = await createJWT(payload, 30 * 24 * 60 * 60);
     if (err) throw err;
-
 
     return res.status(201).json({
       user: {
