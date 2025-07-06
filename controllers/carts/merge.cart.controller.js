@@ -17,7 +17,6 @@ const merge = async (req, res) => {
       if (guestCart.products.length === 0) {
         debug("Request POST /api/cart/merge: Guest cart is empty");
         return res.status(400).json({
-          data: null,
           message: "Guest cart is empty",
         });
       }
@@ -52,7 +51,6 @@ const merge = async (req, res) => {
             error
           );
           return res.status(500).json({
-            data: null,
             message: "Failed to delete guest cart",
           });
         }
@@ -78,14 +76,12 @@ const merge = async (req, res) => {
       }
       debug("Request POST /api/cart/merge: No guest cart found");
       return res.status(400).json({
-        data: null,
         message: "No guest cart found",
       });
     }
   } catch (error) {
     debug("Request POST /api/cart/merge: Error", error);
     return res.status(500).json({
-      data: null,
       message: "Failed to merge carts",
     });
   }

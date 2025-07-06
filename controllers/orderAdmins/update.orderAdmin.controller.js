@@ -15,7 +15,6 @@ const updateOrder = async (req, res) => {
     if (!order) {
       debug("Request PUT /api/admin/orders/update/:id - Order not found");
       return res.status(404).json({
-        data: null,
         message: "Order not found",
       });
     }
@@ -39,7 +38,6 @@ const updateOrder = async (req, res) => {
       error
     );
     return res.status(500).json({
-      data: null,
       message: "Error updating order",
     });
   }

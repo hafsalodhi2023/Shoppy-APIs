@@ -18,14 +18,12 @@ const getAll = async (req, res) => {
     } else {
       debug("Request GET /api/cart/getAll: Cart not found");
       return res.status(404).json({
-        data: null,
         message: "Cart not found",
       });
     }
   } catch (error) {
     debug("Request GET /api/cart/getAll: Error", error);
     return res.status(500).json({
-      data: null,
       message: "Internal server error",
     });
   }

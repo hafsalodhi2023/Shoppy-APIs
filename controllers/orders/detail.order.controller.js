@@ -15,7 +15,6 @@ const detail = async (req, res) => {
     if (!order) {
       debug("Request GET /api/orders/:id: Order not found");
       return res.status(404).json({
-        data: null,
         message: "Order not found",
       });
     }
@@ -28,7 +27,6 @@ const detail = async (req, res) => {
   } catch (error) {
     debug("Request GET /api/orders/:id: Failed to fetch order details", error);
     return res.status(500).json({
-      data: null,
       message: "Internal Server Error.",
     });
   }

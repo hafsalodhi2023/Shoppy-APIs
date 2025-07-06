@@ -18,7 +18,6 @@ const create = async (req, res) => {
     if (!product) {
       debug("Request POST /api/cart/create: Product not found");
       return res.status(404).json({
-        data: null,
         message: "Product not found",
       });
     }
@@ -88,7 +87,6 @@ const create = async (req, res) => {
   } catch (error) {
     debug("Request POST /api/cart/create: ", error);
     res.status(500).json({
-      data: null,
       message: "Internal server error",
     });
   }

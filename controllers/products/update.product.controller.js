@@ -87,7 +87,6 @@ const update = async (req, res) => {
         req.params.id
       );
       return res.status(404).json({
-        data: null,
         message: "Product not found with ID: " + req.params.id,
       });
     }
@@ -95,7 +94,6 @@ const update = async (req, res) => {
     // Handle any unexpected errors during update operation
     debug("Request PUT /api/products/update/:id: ", error);
     return res.status(500).json({
-      data: null,
       message: "Error updating product.",
     });
   }

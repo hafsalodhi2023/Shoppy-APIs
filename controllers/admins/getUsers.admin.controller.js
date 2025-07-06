@@ -16,7 +16,6 @@ const getAllUsers = async (req, res) => {
   } catch (error) {
     debug("Request GET /api/admins/users - Error: " + error);
     return res.status(500).json({
-      data: null,
       message: "Internal server error.",
     });
   }

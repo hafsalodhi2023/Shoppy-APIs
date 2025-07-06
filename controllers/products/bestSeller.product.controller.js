@@ -22,14 +22,12 @@ const bestSeller = async (req, res) => {
         "Request GET /api/products/best-seller: No best seller product found!"
       );
       return res.status(404).json({
-        data: null,
         message: "No best seller product found.",
       });
     }
   } catch (error) {
     debug("Request GET /api/products/best-seller: ", error);
     return res.status(500).json({
-      data: null,
       message: "Internal server error.",
     });
   }

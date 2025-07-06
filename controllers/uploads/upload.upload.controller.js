@@ -11,7 +11,6 @@ const create = async (req, res) => {
     if (!req.file) {
       debug("Request POST /api/uploads/upload: No file found");
       return res.status(400).json({
-        data: null,
         message: "No file found",
       });
     }
@@ -52,7 +51,6 @@ const create = async (req, res) => {
       error
     );
     return res.status(500).json({
-      data: null,
       message: "Internal server error.",
     });
   }

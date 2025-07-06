@@ -99,7 +99,6 @@ const filter = async (req, res) => {
   } catch (error) {
     debug("Error filtering products:", error);
     return res.status(500).json({
-      data: null,
       message: "Internal server error",
     });
   }

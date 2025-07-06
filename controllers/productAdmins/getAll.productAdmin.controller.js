@@ -18,7 +18,6 @@ const getAll = async (req, res) => {
   } catch (error) {
     debug("Request GET /api/admin/products/get-all - Internal server error");
     return res.status(500).json({
-      data: null,
       message: "Internal server error",
     });
   }

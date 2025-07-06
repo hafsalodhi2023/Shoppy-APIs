@@ -20,7 +20,7 @@ const auth = async (req, res, next) => {
         return res.status(401).json({
           
           
-          data: null,
+          
           message: "Not authorized, user not found",
         });
       }
@@ -32,7 +32,7 @@ const auth = async (req, res, next) => {
       return res.status(401).json({
         
         
-        data: null,
+        
         message: "Not authorized, token failed",
       });
     }
@@ -41,7 +41,7 @@ const auth = async (req, res, next) => {
     return res.status(401).json({
       
       
-      data: null,
+      
       message: "Not authorized, no token",
     });
   }

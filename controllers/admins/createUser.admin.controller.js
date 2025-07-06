@@ -11,7 +11,6 @@ const createUser = async (req, res) => {
     if (user) {
       debug("Request POST /api/admins/users - User already exists");
       return res.status(400).json({
-        data: null,
         message: "User already exists",
       });
     }
@@ -26,13 +25,11 @@ const createUser = async (req, res) => {
     await user.save();
     debug("Request POST /api/admins/users - User created successfully");
     return res.status(200).json({
-      data: null,
       message: "User created successfully",
     });
   } catch (error) {
     debug("Request POST /api/admins/users - Error: " + error);
     return res.status(500).json({
-      data: null,
       message: "Internal server error",
     });
   }

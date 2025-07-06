@@ -13,7 +13,6 @@ const similar = async (req, res) => {
     if (!product) {
       debug("Request GET /api/products/similar/:id: Product not found");
       return res.status(404).json({
-        data: null,
         message: "Product not found",
       });
     }
@@ -32,7 +31,6 @@ const similar = async (req, res) => {
   } catch (error) {
     debug("Request GET /api/products/similar/:id: ", error);
     return res.status(500).json({
-      data: null,
       message: "Internal server error",
     });
   }

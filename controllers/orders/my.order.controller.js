@@ -20,7 +20,6 @@ const myOrder = async (req, res) => {
   } catch (error) {
     debug("Request GET /api/orders/my-orders: Failed to fetch orders", error);
     return res.status(500).json({
-      data: null,
       message: "Internal Server Error.",
     });
   }

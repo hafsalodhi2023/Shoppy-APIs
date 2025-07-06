@@ -19,7 +19,6 @@ const register = async (req, res) => {
       debug("Request POST /api/users/register: User already exists!");
 
       return res.status(400).json({
-        data: null,
         message: "User already exists!",
       });
     }
@@ -41,23 +40,17 @@ const register = async (req, res) => {
     debug("Request POST /api/users/register: User registered successfully!");
 
     return res.status(201).json({
-      data: {
-        user: {
-          _id: user._id,
-          name: user.name,
-          email: user.email,
-          role: user.role,
-        },
-        token,
+      user: {
+        _id: user._id,
+        name: user.name,
+        email: user.email,
+        role: user.role,
       },
-      message: "User registered successfully!",
+      token,
     });
   } catch (error) {
     debug("Request POST /api/users/register: ", error);
-    res.status(500).json({
-      data: null,
-      message: "Internal server error.",
-    });
+    res.status(500).send("Server error");
   }
 };
 

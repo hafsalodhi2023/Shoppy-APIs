@@ -12,7 +12,6 @@ const subscribe = async (req, res) => {
   if (!email) {
     debug("Request POST /api/subscribers/subscribe - Email is required.");
     return res.status(400).json({
-      data: null,
       message: "Email is required.",
     });
   }
@@ -25,7 +24,6 @@ const subscribe = async (req, res) => {
         "Request POST /api/subscribers/subscribe - Email is already subscribed."
       );
       return res.status(400).json({
-        data: null,
         message: "Email is already subscribed.",
       });
     }
@@ -36,13 +34,11 @@ const subscribe = async (req, res) => {
 
     debug("Request POST /api/subscribers/subscribe - Subscribed successfully.");
     return res.status(200).json({
-      data: null,
       message: "Subscribed successfully.",
     });
   } catch (error) {
     debug("Request POST /api/subscribers/subscribe - Error: " + error.message);
     return res.status(500).json({
-      data: null,
       message: "Internal server error.",
     });
   }

@@ -20,14 +20,12 @@ const newArrivals = async (req, res) => {
     } else {
       debug("Request GET /api/products/new-arrivals: No new arrivals found");
       return res.status(404).json({
-        data: null,
         message: "No new arrivals found",
       });
     }
   } catch (error) {
     debug("Request GET /api/products/new-arrivals: ", error);
     return res.status(500).json({
-      data: null,
       message: "Internal server error.",
     });
   }

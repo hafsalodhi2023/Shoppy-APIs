@@ -16,14 +16,12 @@ const getOne = async (req, res) => {
     } else {
       debug("Request GET /api/products/:id: Product not found");
       return res.status(404).json({
-        data: null,
         message: "Product not found",
       });
     }
   } catch (error) {
     debug("Request GET /api/products/:id: ", error);
     return res.status(500).json({
-      data: null,
       message: "Internal server error",
     });
   }

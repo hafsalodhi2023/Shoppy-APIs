@@ -12,7 +12,6 @@ const deleteOrder = async (req, res) => {
     const order = await Order.findById(id);
     if (!order) {
       return res.status(404).json({
-        data: null,
         message: "Order not found",
       });
     }
@@ -23,7 +22,6 @@ const deleteOrder = async (req, res) => {
       "Request DELETE /api/admin/orders/delete/:id - Order deleted successfully"
     );
     return res.status(200).json({
-      data: null,
       message: "Order deleted successfully",
     });
   } catch (error) {
@@ -32,7 +30,6 @@ const deleteOrder = async (req, res) => {
       error
     );
     return res.status(500).json({
-      data: null,
       message: "Error deleting order",
     });
   }

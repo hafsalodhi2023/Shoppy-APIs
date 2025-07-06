@@ -64,7 +64,6 @@ const create = async (req, res) => {
     debug("Request POST /api/products/create: ", error);
 
     res.status(500).json({
-      data: null,
       message: "Internal server error.",
     }); // Send error response if an error occurs
   }

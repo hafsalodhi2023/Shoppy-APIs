@@ -21,7 +21,6 @@ const getAll = async (req, res) => {
       error
     );
     res.status(500).json({
-      data: null,
       message: "Error retrieving orders",
     });
   }
