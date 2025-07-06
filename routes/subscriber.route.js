@@ -1,4 +1,3 @@
-// @collapse
 const express = require("express");
 
 const subscribe = require("../controllers/subscribers/subscribe.subscriber.controller");

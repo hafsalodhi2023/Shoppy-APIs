@@ -1,10 +1,8 @@
-// @collapse
 require("dotenv").config();
 
 // Import necessary modules
 const express = require("express");
 const cors = require("cors");
-const debug = require("debug")("server:app.js");
 const cloudinary = require("cloudinary").v2;
 
 // Import routes
@@ -58,5 +56,5 @@ app.use("/api/admin/orders", orderAdminRoutes); // Mount admin order routes
 
 // Start the server
 app.listen(PORT, () => {
-  debug(`Server is running on http://localhost:${PORT}`);
+  console.log(`Server is running on http://localhost:${PORT}`);
 });

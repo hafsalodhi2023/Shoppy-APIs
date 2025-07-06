@@ -1,17 +1,11 @@
-const debug = require("debug")(
-  "server:controllers:checkouts:create.checkout.controller.js"
-);
-
 const Checkout = require("../../models/checkout.model"); // Import Checkout model
 
 const create = async (req, res) => {
   const { checkoutItems, shippingDetails, paymentMethod, totalPrice } =
     req.body;
 
-  debug("Request POST /api/checkout/create");
 
   if (!checkoutItems || checkoutItems.length === 0) {
-    debug("Request POST /api/checkout/create: No checkout items provided");
     return res.status(400).json({
       message: "No checkout items provided",
     });
@@ -29,15 +23,12 @@ const create = async (req, res) => {
       isPaid: false, // Default status
     });
 
-    debug(
-      "Request POST /api/checkout/create: Checkout session created successfully!"
-    );
+
     return res.status(201).json({
       data: newCheckout,
       message: "Checkout session created successfully",
     });
   } catch (error) {
-    debug("Request POST /api/checkout/create: ", error);
     return res.status(500).json({
       message: "Internal server error.",
     });

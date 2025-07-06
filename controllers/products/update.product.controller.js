@@ -1,7 +1,3 @@
-const debug = require("debug")(
-  "server:controllers:products:update.product.controller.js"
-);
-
 /**
  * Import the Product model for database operations
  */
@@ -14,7 +10,6 @@ const Product = require("../../models/product.model");
  * @returns {Object} JSON response with updated product or error message
  */
 const update = async (req, res) => {
-  debug("Request PUT /api/products/update/:id");
   try {
     // Destructure all possible product fields from request body
     const {
@@ -73,26 +68,19 @@ const update = async (req, res) => {
       // Persist the updated product to database
       const updatedProduct = await product.save();
 
-      debug(
-        "Request PUT /api/products/update/:id: Product updated successfully!"
-      );
       return res.json({
         data: updatedProduct,
         message: "Product updated successfully.",
       });
     } else {
       // Handle case when product is not found
-      debug(
-        "Request PUT /api/products/update/:id: Product not found with ID: ",
-        req.params.id
-      );
+   
       return res.status(404).json({
         message: "Product not found with ID: " + req.params.id,
       });
     }
   } catch (error) {
     // Handle any unexpected errors during update operation
-    debug("Request PUT /api/products/update/:id: ", error);
     return res.status(500).json({
       message: "Error updating product.",
     });

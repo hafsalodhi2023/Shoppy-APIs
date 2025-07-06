@@ -1,11 +1,8 @@
-const debug = require("debug")(
-  "server:controllers:products:filter.product.controller.js"
-);
+
 const Product = require("../../models/product.model");
 
 const filter = async (req, res) => {
   try {
-    debug("Request GET /api/products");
 
     const {
       collection,
@@ -91,13 +88,11 @@ const filter = async (req, res) => {
       .sort(sort)
       .limit(Number(limit) || undefined); // Handle 'undefined' for limit
 
-    debug("Request GET /api/products: ", products);
     return res.status(200).json({
       data: products,
       message: "Products filtered successfully!",
     });
   } catch (error) {
-    debug("Error filtering products:", error);
     return res.status(500).json({
       message: "Internal server error",
     });

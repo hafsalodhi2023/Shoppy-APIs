@@ -1,6 +1,3 @@
-const debug = require("debug")(
-  "server:controllers:users:register.user.controller.js"
-);
 
 const User = require("../../models/user.model.js"); // Import User model
 
@@ -9,14 +6,12 @@ const createJWT = require("../../utils/createJWT.util");
 const register = async (req, res) => {
   const { name, email, password } = req.body;
 
-  debug("Request POST /api/users/register");
 
   try {
     // Register a new user
     let user = await User.findOne({ email });
 
     if (user) {
-      debug("Request POST /api/users/register: User already exists!");
 
       return res.status(400).json({
         message: "User already exists!",
@@ -37,7 +32,6 @@ const register = async (req, res) => {
     const [err, token] = await createJWT(payload, 30 * 24 * 60 * 60);
     if (err) throw err;
 
-    debug("Request POST /api/users/register: User registered successfully!");
 
     return res.status(201).json({
       user: {
@@ -49,7 +43,6 @@ const register = async (req, res) => {
       token,
     });
   } catch (error) {
-    debug("Request POST /api/users/register: ", error);
     res.status(500).send("Server error");
   }
 };

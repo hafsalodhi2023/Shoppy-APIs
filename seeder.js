@@ -1,5 +1,3 @@
- = require("debug")("server:seeder.js");
-
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 
@@ -13,7 +11,6 @@ dotenv.config();
 mongoose.connect(process.env.MONGO_URI);
 
 const seedData = async () => {
-  debug("Seeding data...");
   try {
     // Clear Existing data
     await Product.deleteMany();
@@ -36,10 +33,8 @@ const seedData = async () => {
     });
 
     await Product.insertMany(sampleProducts);
-    debug("Data seeded successfully!");
     process.exit();
   } catch (error) {
-    debug("Error seeding data:", error.message);
     process.exit(1);
   }
 };

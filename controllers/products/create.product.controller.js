@@ -1,11 +1,8 @@
-const debug = require("debug")(
-  "server:controllers:products:create.product.controller.js"
-);
+
 
 const Product = require("../../models/product.model"); // Import Product model
 
 const create = async (req, res) => {
-  debug("Request POST /api/products/create");
   try {
     const {
       name,
@@ -54,14 +51,12 @@ const create = async (req, res) => {
 
     const createdProduct = await product.save(); // Save product to database
 
-    debug("Request POST /api/products/create: Product created successfully!");
 
     res.status(201).json({
       data: createdProduct,
       message: "Product created successfully.",
     }); // Send response with created product data
   } catch (error) {
-    debug("Request POST /api/products/create: ", error);
 
     res.status(500).json({
       message: "Internal server error.",

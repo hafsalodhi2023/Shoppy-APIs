@@ -1,4 +1,3 @@
-// @collapse
 const express = require("express");
 
 const create = require("../controllers/carts/create.cart.controller"); // Import create cart controller

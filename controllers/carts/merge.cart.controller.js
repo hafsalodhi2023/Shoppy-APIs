@@ -1,13 +1,8 @@
-const debug = require("debug")(
-  "server:controllers:carts:merge.cart.controller.js"
-);
-
 const Cart = require("../../models/cart.model"); // Import Cart model
 
 const merge = async (req, res) => {
   const { guestId } = req.body; // Get the guestId from the request body
   try {
-    debug("Request POST /api/cart/merge");
 
     // Find the guest's cart and the logged in user's cart
     const guestCart = await Cart.findOne({ guestId });
@@ -15,7 +10,6 @@ const merge = async (req, res) => {
 
     if (guestCart) {
       if (guestCart.products.length === 0) {
-        debug("Request POST /api/cart/merge: Guest cart is empty");
         return res.status(400).json({
           message: "Guest cart is empty",
         });
@@ -46,10 +40,6 @@ const merge = async (req, res) => {
         try {
           await Cart.findOneAndDelete({ guestId });
         } catch (error) {
-          debug(
-            "Request POST /api/cart/merge: Error deleting guest cart",
-            error
-          );
           return res.status(500).json({
             message: "Failed to delete guest cart",
           });
@@ -59,7 +49,6 @@ const merge = async (req, res) => {
         guestCart.user = req.user._id; // Assign the user ID to the guest cart
         guestCart.guestId = undefined; // Remove the guestId as it's now a user cart
         await guestCart.save(); // Save the updated guest cart as a user cart
-        debug("Request POST /api/cart/merge: Guest cart merged into user cart");
         return res.status(200).json({
           data: guestCart,
           message: "Guest cart merged into user cart",
@@ -68,19 +57,16 @@ const merge = async (req, res) => {
     } else {
       if (userCart) {
         // Guest cart has already been merged, return user's cart
-        debug("Request POST /api/cart/merge: No guest cart found");
         return res.status(200).json({
           data: userCart,
           message: "Returning user cart",
         });
       }
-      debug("Request POST /api/cart/merge: No guest cart found");
       return res.status(400).json({
         message: "No guest cart found",
       });
     }
   } catch (error) {
-    debug("Request POST /api/cart/merge: Error", error);
     return res.status(500).json({
       message: "Failed to merge carts",
     });
