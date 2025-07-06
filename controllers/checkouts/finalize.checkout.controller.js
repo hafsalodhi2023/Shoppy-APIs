@@ -14,8 +14,6 @@ const finalize = async (req, res) => {
     if (!checkout) {
       debug("Request POST /api/checkout/:id: Checkout not found");
       return res.status(404).json({
-        success: false,
-        error: true,
         data: null,
         message: "Checkout not found",
       });
@@ -46,23 +44,18 @@ const finalize = async (req, res) => {
       await Cart.findOneAndDelete({ user: checkout.user });
       debug("Request POST /api/checkout/:id: Checkout finalized successfully");
       return res.status(201).json({
-        error: false,
         data: finalOrder,
         message: "Checkout finalized successfully",
       });
     } else if (checkout.isFinalized) {
       debug("Request POST /api/checkout/:id: Checkout already finalized");
       return res.status(400).json({
-        success: false,
-        error: true,
         data: null,
         message: "Checkout already finalized",
       });
     } else {
       debug("Request POST /api/checkout/:id: Checkout not paid");
       return res.status(400).json({
-        success: false,
-        error: true,
         data: null,
         message: "Checkout not paid",
       });
@@ -70,8 +63,6 @@ const finalize = async (req, res) => {
   } catch (error) {
     debug("Request POST /api/checkout/:id: Error finalizing checkout", error);
     return res.status(500).json({
-      success: false,
-      error: true,
       data: null,
       message: "Error finalizing checkout",
     });

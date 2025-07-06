@@ -57,7 +57,6 @@ const create = async (req, res) => {
     debug("Request POST /api/products/create: Product created successfully!");
 
     res.status(201).json({
-      error: false,
       data: createdProduct,
       message: "Product created successfully.",
     }); // Send response with created product data
@@ -65,8 +64,6 @@ const create = async (req, res) => {
     debug("Request POST /api/products/create: ", error);
 
     res.status(500).json({
-      success: false,
-      error: true,
       data: null,
       message: "Internal server error.",
     }); // Send error response if an error occurs

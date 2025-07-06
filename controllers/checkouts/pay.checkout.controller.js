@@ -14,8 +14,6 @@ const pay = async (req, res) => {
     if (!checkout) {
       debug("Request PUT /api/checkout/:id: Checkout not found");
       return res.status(404).json({
-        success: false,
-        error: true,
         data: null,
         message: "Checkout not found",
       });
@@ -30,15 +28,12 @@ const pay = async (req, res) => {
 
       debug("Request PUT /api/checkout/:id: Checkout updated successfully!");
       return res.status(200).json({
-        error: false,
         data: checkout,
         message: "Checkout updated successfully",
       });
     } else {
       debug("Request PUT /api/checkout/:id: Invalid payment status");
       return res.status(400).json({
-        success: false,
-        error: true,
         data: null,
         message: "Invalid payment status",
       });
@@ -46,8 +41,6 @@ const pay = async (req, res) => {
   } catch (error) {
     debug("Request PUT /api/checkout/:id: ", error);
     return res.status(500).json({
-      success: false,
-      error: true,
       data: null,
       message: "Internal server error",
     });

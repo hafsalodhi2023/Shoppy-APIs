@@ -12,8 +12,6 @@ const deleete = async (req, res) => {
     if (!cart) {
       debug("Request DELETE /api/cart/delete: Cart not found");
       return res.status(404).json({
-        success: false,
-        error: true,
         data: null,
         message: "Cart not found",
       });
@@ -36,15 +34,12 @@ const deleete = async (req, res) => {
       await cart.save();
       debug("Request DELETE /api/cart/delete: Cart updated successfully");
       return res.status(200).json({
-        error: false,
         data: cart,
         message: "Cart updated successfully",
       });
     } else {
       debug("Request DELETE /api/cart/delete: Product not found in cart");
       return res.status(404).json({
-        success: false,
-        error: true,
         data: null,
         message: "Product not found in cart",
       });
@@ -52,8 +47,6 @@ const deleete = async (req, res) => {
   } catch (error) {
     debug("Request DELETE /api/cart/delete: Error", error);
     return res.status(500).json({
-      success: false,
-      error: true,
       data: null,
       message: "Internal server error",
     });

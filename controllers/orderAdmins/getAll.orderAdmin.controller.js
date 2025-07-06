@@ -12,7 +12,6 @@ const getAll = async (req, res) => {
       "Request GET /api/admin/orders/get-all - Orders retrieved successfully"
     );
     res.status(200).json({
-      error: false,
       data: orders,
       message: "Orders retrieved successfully",
     });
@@ -22,8 +21,6 @@ const getAll = async (req, res) => {
       error
     );
     res.status(500).json({
-      success: false,
-      error: true,
       data: null,
       message: "Error retrieving orders",
     });

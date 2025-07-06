@@ -12,15 +12,12 @@ const getAll = async (req, res) => {
     if (cart) {
       debug("Request GET /api/cart/getAll: Cart retrieved successfully");
       return res.status(200).json({
-        error: false,
         data: cart,
         message: "Cart retrieved successfully",
       });
     } else {
       debug("Request GET /api/cart/getAll: Cart not found");
       return res.status(404).json({
-        success: false,
-        error: true,
         data: null,
         message: "Cart not found",
       });
@@ -28,8 +25,6 @@ const getAll = async (req, res) => {
   } catch (error) {
     debug("Request GET /api/cart/getAll: Error", error);
     return res.status(500).json({
-      success: false,
-      error: true,
       data: null,
       message: "Internal server error",
     });

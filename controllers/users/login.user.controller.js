@@ -19,8 +19,6 @@ const login = async (req, res) => {
       debug("Request POST /api/users/login: Invalid credentials.");
 
       return res.status(400).json({
-        success: false,
-        error: true,
         data: null,
         message: "Invalid credentials.",
       });
@@ -32,8 +30,6 @@ const login = async (req, res) => {
       debug("Request POST /api/users/login: Invalid credentials.");
 
       return res.status(400).json({
-        success: false,
-        error: true,
         data: null,
         message: "Invalid credentials.",
       });
@@ -53,7 +49,6 @@ const login = async (req, res) => {
     debug("Request POST /api/users/login: User logged in successfully!");
 
     return res.status(200).json({
-      error: false,
       data: {
         user: {
           _id: user._id,
@@ -68,8 +63,6 @@ const login = async (req, res) => {
   } catch (error) {
     debug("Request POST /api/users/login:", error);
     res.status(500).json({
-      success: false,
-      error: true,
       data: null,
       message: "Internal server error.",
     });

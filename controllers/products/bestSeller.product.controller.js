@@ -14,7 +14,6 @@ const bestSeller = async (req, res) => {
         "Request GET /api/products/best-seller: Best seller product found!"
       );
       return res.status(200).json({
-        error: false,
         data: bestSeller,
         message: "Best seller product found.",
       });
@@ -23,8 +22,6 @@ const bestSeller = async (req, res) => {
         "Request GET /api/products/best-seller: No best seller product found!"
       );
       return res.status(404).json({
-        success: false,
-        error: true,
         data: null,
         message: "No best seller product found.",
       });
@@ -32,8 +29,6 @@ const bestSeller = async (req, res) => {
   } catch (error) {
     debug("Request GET /api/products/best-seller: ", error);
     return res.status(500).json({
-      success: false,
-      error: true,
       data: null,
       message: "Internal server error.",
     });

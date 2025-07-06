@@ -18,8 +18,8 @@ const auth = async (req, res, next) => {
         debug("Get Request /api/user/profile: User not found");
 
         return res.status(401).json({
-          success: false,
-          error: true,
+          
+          
           data: null,
           message: "Not authorized, user not found",
         });
@@ -30,8 +30,8 @@ const auth = async (req, res, next) => {
     } catch (error) {
       debug("Error in auth middleware: ", error.message);
       return res.status(401).json({
-        success: false,
-        error: true,
+        
+        
         data: null,
         message: "Not authorized, token failed",
       });
@@ -39,8 +39,8 @@ const auth = async (req, res, next) => {
   } else {
     debug("Error in auth middleware: No token found");
     return res.status(401).json({
-      success: false,
-      error: true,
+      
+      
       data: null,
       message: "Not authorized, no token",
     });

@@ -8,7 +8,6 @@ const profile = async (req, res) => {
   if (req.user) {
     debug("Request GET /api/users/profile: User found");
     return res.json({
-      error: false,
       data: req.user,
       message: "User profile",
     });

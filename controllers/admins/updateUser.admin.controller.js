@@ -12,8 +12,6 @@ const updateUser = async (req, res) => {
     const user = await User.findById(id);
     if (!user) {
       return res.status(404).json({
-        success: false,
-        error: true,
         data: null,
         message: "User not found",
       });
@@ -25,15 +23,12 @@ const updateUser = async (req, res) => {
     await user.save();
     debug("Request PUT /api/admins/users/:id - User updated successfully.");
     return res.status(200).json({
-      error: false,
       data: user,
       message: "User updated successfully",
     });
   } catch (error) {
     debug("Request PUT /api/admins/users/:id - Error: " + error);
     return res.status(500).json({
-      success: false,
-      error: true,
       data: null,
       message: "Internal server error",
     });

@@ -77,7 +77,6 @@ const update = async (req, res) => {
         "Request PUT /api/products/update/:id: Product updated successfully!"
       );
       return res.json({
-        error: false,
         data: updatedProduct,
         message: "Product updated successfully.",
       });
@@ -88,8 +87,6 @@ const update = async (req, res) => {
         req.params.id
       );
       return res.status(404).json({
-        success: false,
-        error: true,
         data: null,
         message: "Product not found with ID: " + req.params.id,
       });
@@ -98,8 +95,6 @@ const update = async (req, res) => {
     // Handle any unexpected errors during update operation
     debug("Request PUT /api/products/update/:id: ", error);
     return res.status(500).json({
-      success: false,
-      error: true,
       data: null,
       message: "Error updating product.",
     });

@@ -11,8 +11,6 @@ const create = async (req, res) => {
     if (!req.file) {
       debug("Request POST /api/uploads/upload: No file found");
       return res.status(400).json({
-        success: false,
-        error: true,
         data: null,
         message: "No file found",
       });
@@ -45,7 +43,6 @@ const create = async (req, res) => {
     debug("Request POST /api/uploads/upload: File uploaded to Cloudinary");
     // Respond with the uploaded image URL
     return res.status(200).json({
-      error: false,
       data: result.secure_url,
       message: "File uploaded successfully.",
     });
@@ -55,8 +52,6 @@ const create = async (req, res) => {
       error
     );
     return res.status(500).json({
-      success: false,
-      error: true,
       data: null,
       message: "Internal server error.",
     });

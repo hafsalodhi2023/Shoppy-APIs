@@ -14,15 +14,12 @@ const newArrivals = async (req, res) => {
         "Request GET /api/products/new-arrivals: New arrivals fetched successfully!"
       );
       return res.status(200).json({
-        error: false,
         data: newArrival,
         message: "New arrivals fetched successfully",
       });
     } else {
       debug("Request GET /api/products/new-arrivals: No new arrivals found");
       return res.status(404).json({
-        success: false,
-        error: true,
         data: null,
         message: "No new arrivals found",
       });
@@ -30,8 +27,6 @@ const newArrivals = async (req, res) => {
   } catch (error) {
     debug("Request GET /api/products/new-arrivals: ", error);
     return res.status(500).json({
-      success: false,
-      error: true,
       data: null,
       message: "Internal server error.",
     });

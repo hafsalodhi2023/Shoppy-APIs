@@ -18,8 +18,6 @@ const create = async (req, res) => {
     if (!product) {
       debug("Request POST /api/cart/create: Product not found");
       return res.status(404).json({
-        success: false,
-        error: true,
         data: null,
         message: "Product not found",
       });
@@ -59,7 +57,6 @@ const create = async (req, res) => {
       await cart.save();
       debug("Request POST /api/cart/create: Cart updated successfully");
       res.status(200).json({
-        error: false,
         data: cart,
         message: "Cart updated successfully",
       });
@@ -84,7 +81,6 @@ const create = async (req, res) => {
       await cart.save();
       debug("Request POST /api/cart/create: Cart created successfully");
       return res.status(201).json({
-        error: false,
         data: cart,
         message: "Cart created successfully",
       });
@@ -92,8 +88,6 @@ const create = async (req, res) => {
   } catch (error) {
     debug("Request POST /api/cart/create: ", error);
     res.status(500).json({
-      success: false,
-      error: true,
       data: null,
       message: "Internal server error",
     });

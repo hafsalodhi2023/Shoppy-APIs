@@ -15,8 +15,6 @@ const update = async (req, res) => {
     if (!cart) {
       debug("Request PUT /api/cart/update: Cart not found");
       return res.status(404).json({
-        success: false,
-        error: true,
         data: null,
         message: "Cart not found",
       });
@@ -43,15 +41,12 @@ const update = async (req, res) => {
       await cart.save();
       debug("Request PUT /api/cart/update: Cart updated successfully");
       return res.status(200).json({
-        error: false,
         data: cart,
         message: "Cart updated successfully",
       });
     } else {
       debug("Request PUT /api/cart/update: Product not found in cart");
       return res.status(404).json({
-        success: false,
-        error: true,
         data: null,
         message: "Product not found in cart",
       });
@@ -59,8 +54,6 @@ const update = async (req, res) => {
   } catch (error) {
     debug("Request PUT /api/cart/update: Error updating cart", error);
     return res.status(500).json({
-      success: false,
-      error: true,
       data: null,
       message: "Error updating cart",
     });

@@ -15,8 +15,6 @@ const updateOrder = async (req, res) => {
     if (!order) {
       debug("Request PUT /api/admin/orders/update/:id - Order not found");
       return res.status(404).json({
-        success: false,
-        error: true,
         data: null,
         message: "Order not found",
       });
@@ -32,7 +30,6 @@ const updateOrder = async (req, res) => {
       "Request PUT /api/admin/orders/update/:id - Order updated successfully"
     );
     return res.status(200).json({
-      error: false,
       data: updatedOrder,
       message: "Order updated successfully",
     });
@@ -42,8 +39,6 @@ const updateOrder = async (req, res) => {
       error
     );
     return res.status(500).json({
-      success: false,
-      error: true,
       data: null,
       message: "Error updating order",
     });

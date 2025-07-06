@@ -10,15 +10,12 @@ const getAllUsers = async (req, res) => {
     const users = await User.find();
     debug("Request GET /api/admins/users - Users fetched successfully.");
     return res.status(200).json({
-      error: false,
       data: users,
       message: "Users fetched successfully",
     });
   } catch (error) {
     debug("Request GET /api/admins/users - Error: " + error);
     return res.status(500).json({
-      success: false,
-      error: true,
       data: null,
       message: "Internal server error.",
     });

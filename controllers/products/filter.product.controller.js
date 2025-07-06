@@ -93,15 +93,12 @@ const filter = async (req, res) => {
 
     debug("Request GET /api/products: ", products);
     return res.status(200).json({
-      error: false,
       data: products,
       message: "Products filtered successfully!",
     });
   } catch (error) {
     debug("Error filtering products:", error);
     return res.status(500).json({
-      success: false,
-      error: true,
       data: null,
       message: "Internal server error",
     });

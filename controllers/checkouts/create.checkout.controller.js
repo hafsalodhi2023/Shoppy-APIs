@@ -13,8 +13,6 @@ const create = async (req, res) => {
   if (!checkoutItems || checkoutItems.length === 0) {
     debug("Request POST /api/checkout/create: No checkout items provided");
     return res.status(400).json({
-      success: false,
-      error: true,
       data: null,
       message: "No checkout items provided",
     });
@@ -36,15 +34,12 @@ const create = async (req, res) => {
       "Request POST /api/checkout/create: Checkout session created successfully!"
     );
     return res.status(201).json({
-      error: false,
       data: newCheckout,
       message: "Checkout session created successfully",
     });
   } catch (error) {
     debug("Request POST /api/checkout/create: ", error);
     return res.status(500).json({
-      success: false,
-      error: true,
       data: null,
       message: "Internal server error.",
     });
