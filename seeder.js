@@ -1,5 +1,4 @@
-// @collapse
-const debug = require("debug")("server:seeder.js");
+ = require("debug")("server:seeder.js");
 
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");

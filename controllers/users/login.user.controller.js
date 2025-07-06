@@ -1,5 +1,4 @@
-// @collapse
-const debug = require("debug")(
+ = require("debug")(
   "server:controllers:users:login.user.controller.js"
 );
 

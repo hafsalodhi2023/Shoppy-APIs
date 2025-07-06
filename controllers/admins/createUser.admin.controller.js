@@ -1,4 +1,3 @@
-// @collapse
 const debug = require("debug")(
   "server:controllers:admins:createUser.admin.controller.js"
 );

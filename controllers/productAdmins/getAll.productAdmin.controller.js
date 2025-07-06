@@ -1,5 +1,4 @@
-// @collapse
-const debug = require("debug")(
+ = require("debug")(
   "server:controllers:productAdmins:getAll.productAdmin.controller.js"
 );
 

@@ -1,5 +1,4 @@
-// @collapse
-const debug = require("debug")(
+ = require("debug")(
   "server:controllers:products:filter.product.controller.js"
 );
 const Product = require("../../models/product.model");

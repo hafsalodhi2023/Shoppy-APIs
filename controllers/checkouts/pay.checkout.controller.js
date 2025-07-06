@@ -1,4 +1,3 @@
-// @collapse
 const debug = require("debug")(
   "server:controllers:checkouts:update.checkout.controller.js"
 );
