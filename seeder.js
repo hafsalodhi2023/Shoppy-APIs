@@ -21,7 +21,7 @@ const seedData = async () => {
     const createdUser = await User.create({
       name: "Admin",
       email: "admin@example.com",
-      password: "123456789",
+      password: "12345678",
       role: "admin",
     });
 
@@ -35,6 +35,7 @@ const seedData = async () => {
     await Product.insertMany(sampleProducts);
     process.exit();
   } catch (error) {
+    console.log(error);
     process.exit(1);
   }
 };
