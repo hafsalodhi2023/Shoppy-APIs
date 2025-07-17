@@ -3,7 +3,6 @@ const Cart = require("../../models/cart.model"); // Import Cart model
 const merge = async (req, res) => {
   const { guestId } = req.body; // Get the guestId from the request body
   try {
-
     // Find the guest's cart and the logged in user's cart
     const guestCart = await Cart.findOne({ guestId });
     const userCart = await Cart.findOne({ user: req.user._id });
@@ -40,27 +39,19 @@ const merge = async (req, res) => {
         try {
           await Cart.findOneAndDelete({ guestId });
         } catch (error) {
-          return res.status(500).json({
-            message: "Failed to delete guest cart",
-          });
+          console.error("Failed to delete guest cart:", error);
         }
       } else {
         // if the user has no existing cart, assign the guest cart to the user
         guestCart.user = req.user._id; // Assign the user ID to the guest cart
         guestCart.guestId = undefined; // Remove the guestId as it's now a user cart
         await guestCart.save(); // Save the updated guest cart as a user cart
-        return res.status(200).json({
-          data: guestCart,
-          message: "Guest cart merged into user cart",
-        });
+        return res.status(200).json(guestCart);
       }
     } else {
       if (userCart) {
         // Guest cart has already been merged, return user's cart
-        return res.status(200).json({
-          data: userCart,
-          message: "Returning user cart",
-        });
+        return res.status(200).json(userCart);
       }
       return res.status(400).json({
         message: "No guest cart found",

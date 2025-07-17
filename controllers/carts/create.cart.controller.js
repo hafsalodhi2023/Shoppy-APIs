@@ -7,7 +7,6 @@ const getCart = require("../../utils/getCart.util"); // Import getCart utility
 const create = async (req, res) => {
   const { productId, quantity, size, color, guestId, userId } = req.body;
   try {
-
     const product = await Product.findById(productId);
 
     if (!product) {
@@ -48,10 +47,7 @@ const create = async (req, res) => {
         0
       );
       await cart.save();
-      res.status(200).json({
-        data: cart,
-        message: "Cart updated successfully",
-      });
+      res.status(200).json(cart);
     } else {
       // Creates a new cart for guest or logged in user
       cart = new Cart({
@@ -71,10 +67,7 @@ const create = async (req, res) => {
         totalPrice: product.price * quantity,
       });
       await cart.save();
-      return res.status(201).json({
-        data: cart,
-        message: "Cart created successfully",
-      });
+      return res.status(201).json(cart);
     }
   } catch (error) {
     res.status(500).json({

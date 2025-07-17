@@ -14,22 +14,22 @@ const router = express.Router(); // Create router
 // @route POST /api/cart/create
 // @desc Add a product to the cart for a guest or logged in user
 // @access Public
-router.post("/create", create);
+router.post("/", create);
 
 // @route PUT /api/cart/update
 // @desc Update the quantity of a product in the cart for the guest or logged in user
 // @access Public
-router.put("/update", update);
+router.put("/", update);
 
 // @route DELETE /api/cart/delete
 // @desc Delete a product from the cart for the guest or logged in user
 // @access Public
-router.delete("/delete", deleete);
+router.delete("/", deleete);
 
 // @route GET /api/cart/get
 // @desc Get the cart for the guest or logged in user
 // @access Public
-router.get("/get-all", getAll);
+router.get("/", getAll);
 
 // @route POST /api/cart/merge
 // @desc Merge the cart for the guest with the logged in user's cart

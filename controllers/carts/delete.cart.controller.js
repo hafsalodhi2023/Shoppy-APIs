@@ -25,10 +25,7 @@ const deleete = async (req, res) => {
         0
       );
       await cart.save();
-      return res.status(200).json({
-        data: cart,
-        message: "Cart updated successfully",
-      });
+      return res.status(200).json(cart);
     } else {
       return res.status(404).json({
         message: "Product not found in cart",
