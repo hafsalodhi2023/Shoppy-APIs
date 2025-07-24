@@ -35,10 +35,7 @@ const finalize = async (req, res) => {
 
       // Delete the cart associated with the user
       await Cart.findOneAndDelete({ user: checkout.user });
-      return res.status(201).json({
-        data: finalOrder,
-        message: "Checkout finalized successfully",
-      });
+      return res.status(201).json(finalOrder);
     } else if (checkout.isFinalized) {
       return res.status(400).json({
         message: "Checkout already finalized",

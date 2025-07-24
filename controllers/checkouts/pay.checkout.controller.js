@@ -19,10 +19,7 @@ const pay = async (req, res) => {
       checkout.paidAt = Date.now();
       await checkout.save();
 
-      return res.status(200).json({
-        data: checkout,
-        message: "Checkout updated successfully",
-      });
+      return res.status(200).json(checkout);
     } else {
       return res.status(400).json({
         message: "Invalid payment status",

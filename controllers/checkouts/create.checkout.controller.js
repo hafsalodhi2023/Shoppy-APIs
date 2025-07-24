@@ -4,7 +4,6 @@ const create = async (req, res) => {
   const { checkoutItems, shippingDetails, paymentMethod, totalPrice } =
     req.body;
 
-
   if (!checkoutItems || checkoutItems.length === 0) {
     return res.status(400).json({
       message: "No checkout items provided",
@@ -23,11 +22,7 @@ const create = async (req, res) => {
       isPaid: false, // Default status
     });
 
-
-    return res.status(201).json({
-      data: newCheckout,
-      message: "Checkout session created successfully",
-    });
+    return res.status(201).json(newCheckout);
   } catch (error) {
     return res.status(500).json({
       message: "Internal server error.",
