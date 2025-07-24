@@ -1,4 +1,3 @@
-
 const Order = require("../../models/order.model"); // Import Order model
 
 const detail = async (req, res) => {
@@ -14,10 +13,7 @@ const detail = async (req, res) => {
       });
     }
 
-    return res.status(200).json({
-      data: order,
-      message: "Order fetched successfully",
-    });
+    return res.status(200).json(order);
   } catch (error) {
     return res.status(500).json({
       message: "Internal Server Error.",
