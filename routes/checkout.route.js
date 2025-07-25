@@ -12,7 +12,7 @@ const router = express.Router(); // Create router
 // @route POST /api/checkout/create
 // @desc Create a new checkout session
 // @access Private
-router.post("/create", auth, create);
+router.post("/", auth, create);
 
 // @route PUT /api/checkout/:id
 // @desc Update checkout to mark as paid after successful payment

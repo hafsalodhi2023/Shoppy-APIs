@@ -14,6 +14,6 @@ const router = express.Router();
 // @route POST /api/uploads/upload
 // @desc Upload an image
 // @access Private
-router.post("/upload", upload.single("image"), create);
+router.post("/", upload.single("image"), create);
 
 module.exports = router;

@@ -46,7 +46,7 @@ app.use("/api/products", productRoutes); // Mount products routes
 app.use("/api/carts", cartRoutes); // Mount carts routes
 app.use("/api/checkouts", checkoutRoutes); // Mount checkouts routes
 app.use("/api/orders", orderRoutes); // Mount orders routes
-app.use("/api/uploads", uploadRoutes); // Mount upload routes
+app.use("/api/upload", uploadRoutes); // Mount upload routes
 app.use("/api/subscribers", subscriberRoutes); // Mount subscriber routes
 
 // Admin routes
