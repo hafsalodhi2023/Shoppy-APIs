@@ -12,6 +12,6 @@ const router = express.Router();
 // @route GET /api/admin/products/get-all
 // @desc Get all products
 // @access Private (Admin only)
-router.get("/get-all", [auth, admin], getAll);
+router.get("/", [auth, admin], getAll);
 
 module.exports = router;
