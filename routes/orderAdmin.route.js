@@ -14,16 +14,16 @@ const router = express.Router();
 // @route GET /api/admin/orders/get-all
 // @desc Get all orders for admin
 // @access Private (Admin only)
-router.get("/get-all", auth, admin, getAll);
+router.get("/", auth, admin, getAll);
 
 // @route PUT /api/admin/orders/update/:id
 // @desc Update order status by ID
 // @access Private (Admin only)
-router.put("/update/:id", auth, admin, updateOrderStatus);
+router.put("/:id", auth, admin, updateOrderStatus);
 
 // @route GET /api/admin/orders/delete/:id
 // @desc Delete order by ID
 // @access Private (Admin only)
-router.delete("/delete/:id", auth, admin, deleteOrder);
+router.delete("/:id", auth, admin, deleteOrder);
 
 module.exports = router;
