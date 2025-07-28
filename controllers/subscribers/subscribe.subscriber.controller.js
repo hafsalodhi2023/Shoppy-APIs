@@ -1,9 +1,7 @@
-
 const Subscriber = require("../../models/subscriber.model");
 
 const subscribe = async (req, res) => {
   const { email } = req.body;
-
 
   if (!email) {
     return res.status(400).json({

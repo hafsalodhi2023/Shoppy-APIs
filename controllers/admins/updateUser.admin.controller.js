@@ -5,19 +5,18 @@ const updateUser = async (req, res) => {
     const { id } = req.params;
     const { name, email, password, role } = req.body;
     const user = await User.findById(id);
-    if (!user) {
-      return res.status(404).json({
-        message: "User not found",
-      });
+    if (user) {
+      user.name = name || user.name;
+      user.email = email || user.email;
+      user.password = password || user.password;
+      user.role = role || user.role;
     }
-    user.name = name || user.name;
-    user.email = email || user.email;
-    user.password = password || user.password;
-    user.role = role || user.role;
-    await user.save();
+
+    const updatedUser = await user.save();
+
     return res.status(200).json({
-      data: user,
       message: "User updated successfully",
+      user: updatedUser,
     });
   } catch (error) {
     return res.status(500).json({
