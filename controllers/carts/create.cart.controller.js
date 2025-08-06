@@ -1,22 +1,15 @@
 const Product = require("../../models/product.model"); // Import Product model
 const Cart = require("../../models/cart.model"); // Import Cart model
-const mongoose = require("mongoose"); // Import mongoose
 
 // Import getCart utility
 const getCart = require("../../utils/getCart.util"); // Import getCart utility
 
 const create = async (req, res) => {
   const { productId, quantity, size, color, guestId, userId } = req.body;
-
-  if (!mongoose.Types.ObjectId.isValid(productId)) {
-    return res.status(400).json({ message: "Invalid product ID" });
-  }
-
   try {
     const product = await Product.findById(productId);
 
     if (!product) {
-      console.log(productId, product);
       return res.status(404).json({
         message: "Product not found",
       });
@@ -41,7 +34,7 @@ const create = async (req, res) => {
         cart.products.push({
           productId,
           name: product.name,
-          image: product.images[0].url || "",
+          image: product.images[0].url,
           price: product.price,
           size,
           color,
@@ -77,8 +70,7 @@ const create = async (req, res) => {
       return res.status(201).json(cart);
     }
   } catch (error) {
-    console.log(error);
-    return res.status(500).json({
+    res.status(500).json({
       message: "Internal server error",
     });
   }
