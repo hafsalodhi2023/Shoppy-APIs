@@ -12,19 +12,13 @@ const pay = async (req, res) => {
       });
     }
 
-    if (paymentStatus === "paid") {
-      checkout.isPaid = true;
-      checkout.paymentStatus = paymentStatus;
-      checkout.paymentDetails = paymentDetails;
-      checkout.paidAt = Date.now();
-      await checkout.save();
+    checkout.isPaid = true;
+    checkout.paymentStatus = paymentStatus;
+    checkout.paymentDetails = paymentDetails;
+    checkout.paidAt = Date.now();
+    await checkout.save();
 
-      return res.status(200).json(checkout);
-    } else {
-      return res.status(400).json({
-        message: "Invalid payment status",
-      });
-    }
+    return res.status(200).json(checkout);
   } catch (error) {
     return res.status(500).json({
       message: "Internal server error",
