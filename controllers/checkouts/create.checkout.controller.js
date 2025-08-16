@@ -1,7 +1,7 @@
 const Checkout = require("../../models/checkout.model"); // Import Checkout model
 
 const create = async (req, res) => {
-  const { checkoutItems, shippingDetails, paymentMethod, totalPrice } =
+  const { checkoutItems, shippingAddress, paymentMethod, totalPrice } =
     req.body;
 
   if (!checkoutItems || checkoutItems.length === 0) {
@@ -15,7 +15,7 @@ const create = async (req, res) => {
     const newCheckout = await Checkout.create({
       user: req.user._id, // Assuming req.user is populated by auth middleware
       checkoutItems,
-      shippingDetails,
+      shippingAddress,
       paymentMethod,
       totalPrice,
       paymentStatus: "Pending", // Default status

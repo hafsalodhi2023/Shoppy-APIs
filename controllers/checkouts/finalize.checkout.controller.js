@@ -17,7 +17,7 @@ const finalize = async (req, res) => {
       const finalOrder = await Order.create({
         user: checkout.user,
         orderItems: checkout.checkoutItems,
-        shippingDetails: checkout.shippingDetails,
+        shippingAddress: checkout.shippingAddress,
         paymentMethod: checkout.paymentMethod,
         totalPrice: checkout.totalPrice,
         isPaid: true,
