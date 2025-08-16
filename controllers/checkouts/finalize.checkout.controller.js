@@ -12,7 +12,7 @@ const finalize = async (req, res) => {
       });
     }
 
-    if (checkout.isPaid && !checkout.isFinalized) {
+    if (!checkout.isFinalized) {
       // Create final order based on the checkout details
       const finalOrder = await Order.create({
         user: checkout.user,
