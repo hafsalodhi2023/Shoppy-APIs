@@ -72,6 +72,8 @@ const checkoutSchema = new mongoose.Schema(
     finalizedAt: {
       type: Date,
     },
+    color: String,
+    size: String,
   },
   { timestamps: true }
 );
