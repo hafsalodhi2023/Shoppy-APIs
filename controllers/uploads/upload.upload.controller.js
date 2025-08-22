@@ -30,6 +30,7 @@ const create = async (req, res) => {
     // Respond with the uploaded image URL
     return res.status(200).json({ imageUrl: result.secure_url });
   } catch (error) {
+    console.log(error);
     return res.status(500).json({
       message: "Internal server error.",
     });

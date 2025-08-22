@@ -68,6 +68,7 @@ const update = async (req, res) => {
       });
     }
   } catch (error) {
+    console.log(error);
     // Handle any unexpected errors during update operation
     res.status(500).send("Server error");
   }

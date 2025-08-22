@@ -5,7 +5,7 @@ const updateOrder = async (req, res) => {
     const { id } = req.params;
     const { status } = req.body;
 
-    const order = await Order.findById(id);
+    const order = await Order.findById(id).populate("user","name");
 
     if (order) {
       order.status = status;
@@ -21,6 +21,7 @@ const updateOrder = async (req, res) => {
       });
     }
   } catch (error) {
+    console.log(error)
     return res.status(500).json({
       message: "Error updating order",
     });
