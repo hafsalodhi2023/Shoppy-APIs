@@ -12,17 +12,17 @@ const products = [
     category: "Top Wear",
     brand: "Urban Threads",
     sizes: ["S", "M", "L", "XL", "XXL"],
-    colors: ["Red", "Blue", "Yellow"],
+    colors: ["antiquewhite", "burlywood", "darkgoldenrod"],
     collections: "Business Casual",
     material: "Cotton",
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=39",
+        url: "https://res.cloudinary.com/dus4rdsek/image/upload/v1755510306/a5kopzbszg5ejtyffkjo.png",
         altText: "Classic Oxford Button-Down Shirt Front View",
       },
       {
-        url: "https://picsum.photos/500/500?random=40",
+        url: "https://res.cloudinary.com/dus4rdsek/image/upload/v1755511573/rxz0vond5t63r3vopkae.png",
         altText: "Classic Oxford Button-Down Shirt Back View",
       },
     ],
@@ -40,17 +40,17 @@ const products = [
     category: "Top Wear",
     brand: "Modern Fit",
     sizes: ["S", "M", "L", "XL"],
-    colors: ["Black", "Navy Blue", "Burgundy"],
+    colors: ["lightblue", "mediumpurple", "mistyrose"],
     collections: "Formal Wear",
     material: "Cotton Blend",
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=41",
+        url: "https://res.cloudinary.com/dus4rdsek/image/upload/v1755511968/zs4llispxbagqxcmml1t.png",
         altText: "Slim-Fit Stretch Shirt Front View",
       },
       {
-        url: "https://picsum.photos/500/500?random=42",
+        url: "https://res.cloudinary.com/dus4rdsek/image/upload/v1755512573/lxeecynwki53t6aqbx6q.png",
         altText: "Slim-Fit Stretch Shirt Back View",
       },
     ],
@@ -68,17 +68,17 @@ const products = [
     category: "Top Wear",
     brand: "Street Style",
     sizes: ["S", "M", "L", "XL", "XXL"],
-    colors: ["Light Blue", "Dark Wash"],
+    colors: ["paleturquoise", "steelblue"],
     collections: "Casual Wear",
     material: "Denim",
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=43",
+        url: "https://res.cloudinary.com/dus4rdsek/image/upload/v1755676547/ktdflpjwz0l7at0ohxlf.png",
         altText: "Casual Denim Shirt Front View",
       },
       {
-        url: "https://picsum.photos/500/500?random=44",
+        url: "https://res.cloudinary.com/dus4rdsek/image/upload/v1755676729/s0ysdaqfmocxuzdsqq4d.png",
         altText: "Casual Denim Shirt Back View",
       },
     ],
@@ -96,17 +96,17 @@ const products = [
     category: "Top Wear",
     brand: "Beach Breeze",
     sizes: ["S", "M", "L", "XL"],
-    colors: ["Tropical Print", "Navy Palms"],
+    colors: ["darkslategray", "lightyellow"],
     collections: "Vacation Wear",
     material: "Viscose",
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=45",
+        url: "https://res.cloudinary.com/dus4rdsek/image/upload/v1755677315/kezzq5gyx5aqi1ixafv7.png",
         altText: "Printed Resort Shirt Front View",
       },
       {
-        url: "https://picsum.photos/500/500?random=1",
+        url: "https://res.cloudinary.com/dus4rdsek/image/upload/v1755677365/pimqsmyut0s17pseqftg.png",
         altText: "Printed Resort Shirt Back View",
       },
     ],
@@ -130,11 +130,11 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=47",
+        url: "https://res.cloudinary.com/dus4rdsek/image/upload/v1755769308/q0w4p4se4gqrdtmdntgy.png",
         altText: "Slim-Fit Easy-Iron Shirt Front View",
       },
       {
-        url: "https://picsum.photos/500/500?random=2",
+        url: "https://res.cloudinary.com/dus4rdsek/image/upload/v1755769342/pan7valuh2sjrasxryom.png",
         altText: "Slim-Fit Easy-Iron Shirt Front View",
       },
     ],
@@ -152,17 +152,17 @@ const products = [
     category: "Top Wear",
     brand: "Polo Classics",
     sizes: ["S", "M", "L", "XL"],
-    colors: ["White", "Navy", "Red"],
+    colors: ["blue", "gold", "mediumpurple"],
     collections: "Casual Wear",
     material: "Cotton",
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=3",
+        url: "https://res.cloudinary.com/dus4rdsek/image/upload/v1755769708/f9vbosczvzt5oelgdlfp.png",
         altText: "Polo T-Shirt Front View",
       },
       {
-        url: "https://picsum.photos/500/500?random=4",
+        url: "https://res.cloudinary.com/dus4rdsek/image/upload/v1755769718/a2kzfkjlp3osj9ut2ejw.png",
         altText: "Polo T-Shirt Back View",
       },
     ],
@@ -186,7 +186,11 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=5",
+        url: "https://res.cloudinary.com/dus4rdsek/image/upload/v1755770110/g8nza2zp5lqm7ttyyak3.png",
+        altText: "Oversized Graphic T-Shirt Front View",
+      },
+      {
+        url: "https://res.cloudinary.com/dus4rdsek/image/upload/v1755770119/ukltptozr570hge1sql8.png",
         altText: "Oversized Graphic T-Shirt Front View",
       },
     ],
@@ -204,13 +208,13 @@ const products = [
     category: "Top Wear",
     brand: "Heritage Wear",
     sizes: ["S", "M", "L", "XL"],
-    colors: ["Heather Gray", "Olive", "Black"],
+    colors: ["mistyrose", "Olive", "navy"],
     collections: "Casual Wear",
     material: "Cotton Blend",
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=6",
+        url: "https://res.cloudinary.com/dus4rdsek/image/upload/v1755770406/qwz8gmozanabqycq2rtw.png",
         altText: "Regular-Fit Henley Shirt Front View",
       },
     ],
@@ -516,13 +520,13 @@ const products = [
     category: "Bottom Wear",
     brand: "DenimStyle",
     sizes: ["XS", "S", "M", "L", "XL"],
-    colors: ["Dark Blue", "Black", "Light Blue"],
+    colors: ["lightslategrey", "lightsteelblue", "lightblue"],
     collections: "Denim Collection",
     material: "Denim",
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=19",
+        url: "https://res.cloudinary.com/dus4rdsek/image/upload/v1755770614/lpabjnzggg5rd94qkpe1.png",
         altText: "High-Waist Skinny Jeans",
       },
     ],
@@ -540,13 +544,13 @@ const products = [
     category: "Bottom Wear",
     brand: "ElegantWear",
     sizes: ["S", "M", "L", "XL"],
-    colors: ["Beige", "Black", "White"],
+    colors: ["Beige", "mediumaquamarine", "tan"],
     collections: "Formal Collection",
     material: "Polyester",
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=20",
+        url: "https://res.cloudinary.com/dus4rdsek/image/upload/v1755770897/ql6p9x62ro1lwuaa0jrv.png",
         altText: "Wide-Leg Trousers Front View",
       },
     ],
@@ -564,13 +568,13 @@ const products = [
     category: "Bottom Wear",
     brand: "ComfyFit",
     sizes: ["S", "M", "L", "XL"],
-    colors: ["Black", "Gray", "Navy"],
+    colors: ["mediumorchid", "mediumvioletred", "Navy"],
     collections: "Activewear Collection",
     material: "Cotton Blend",
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=21",
+        url: "https://res.cloudinary.com/dus4rdsek/image/upload/v1755856379/lmimwzq66kro9wz7wwsc.jpg",
         altText: "Stretch Leggings Front View",
       },
     ],
@@ -588,13 +592,13 @@ const products = [
     category: "Bottom Wear",
     brand: "ChicStyle",
     sizes: ["S", "M", "L"],
-    colors: ["Pink", "Navy", "Black"],
+    colors: ["Pink", "saddlebrown", "olive"],
     collections: "Spring Collection",
     material: "Polyester",
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=22",
+        url: "https://res.cloudinary.com/dus4rdsek/image/upload/v1755856706/an5whlrin83vkpdy3tvj.png",
         altText: "Pleated Midi Skirt Front View",
       },
     ],
