@@ -26,7 +26,7 @@ const app = express();
 // Middleware setup
 app.use(
   cors({
-    origin: ["https://shopppy.vercel.app", "http://localhost:5173/"], // Set CORS origin
+    origin: ["https://shopppy.vercel.app", "http://localhost:5173"], // Set CORS origin
     methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"], // Allowed HTTP methods
     credentials: true, // Allow credentials
   })
