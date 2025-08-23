@@ -25,7 +25,13 @@ const app = express();
 
 // Middleware setup
 app.use(express.json()); // Parse JSON request bodies
-app.use(cors()); // Enable CORS
+app.use(
+  cors({
+    origin: process.env.CORS_ORIGIN || "https://shopppy.vercel.app", // Set CORS origin
+    methods: "GET,HEAD,PUT,POST,DELETE", // Allowed HTTP methods
+    credentials: true, // Allow credentials
+  })
+); // Enable CORS
 
 // Define port number
 const PORT = process.env.PORT || 3000;
