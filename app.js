@@ -24,8 +24,8 @@ const connectDB = require("./config/db.config.js");
 const app = express();
 
 // Middleware setup
-app.use(express.json()); // Parse JSON request bodies
 cors();
+app.use(express.json()); // Parse JSON request bodies
 
 // Define port number
 const PORT = process.env.PORT || 3000;
