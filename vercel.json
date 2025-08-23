@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "name": "Shoppy-APIs",
+  "builds": [
+    {
+      "src": "app.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "app.js"
+    }
+  ]
+}
