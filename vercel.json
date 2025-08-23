@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "name": "Shoppy-APIs",
+  "name": "shoppy-apis",
   "builds": [
     {
       "src": "app.js",
