@@ -25,10 +25,7 @@ const app = express();
 
 // Middleware setup
 app.use(express.json()); // Parse JSON request bodies
-cors({
-  origin: "*",
-  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-});
+cors();
 
 // Define port number
 const PORT = process.env.PORT || 3000;
