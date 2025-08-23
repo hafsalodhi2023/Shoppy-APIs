@@ -54,6 +54,10 @@ app.use("/api/admin/users", adminRoutes); // Mount admin routes
 app.use("/api/admin/products", adminProductRoutes); // Mount admin product routes
 app.use("/api/admin/orders", orderAdminRoutes); // Mount admin order routes
 
+app.get("/", (req, res) => {
+  res.send("Welcome to the Shoppy APIs");
+});
+
 // Start the server
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
