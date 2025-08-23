@@ -27,7 +27,7 @@ const app = express();
 app.use(express.json()); // Parse JSON request bodies
 app.use(
   cors({
-    origin: process.env.CORS_ORIGIN || "https://shopppy.vercel.app", // Set CORS origin
+    origin: process.env.CORS_ORIGIN || "https://shopppy.vercel.app/", // Set CORS origin
     methods: "GET,HEAD,PUT,POST,DELETE", // Allowed HTTP methods
     credentials: true, // Allow credentials
   })
