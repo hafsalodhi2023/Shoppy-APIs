@@ -61,6 +61,8 @@ const filter = async (req, res) => {
       query.$or = [
         { name: { $regex: " " + search + " ", $options: "i" } },
         { description: { $regex: " " + search + " ", $options: "i" } },
+        { brand: { $regex: search, $options: "i" } },
+        { material: { $regex: search, $options: "i" } },
       ];
     }
 
